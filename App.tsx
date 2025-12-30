@@ -8,6 +8,8 @@ import WhatWeFix from './pages/WhatWeFix';
 import HowWeWork from './pages/HowWeWork';
 import Packages from './pages/Packages';
 import Contact from './pages/Contact';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 
 const App: React.FC = () => {
   return (
