@@ -2,7 +2,7 @@ name: Deploy TWMM to GitHub Pages
 
 on:
   push:
-    branches: ["main"] # Ensure this matches your branch name (main/master)
+    branches: ["main"]
 
 permissions:
   contents: read
@@ -27,7 +27,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist' # This is the folder Vite creates
+          path: './dist' 
 
   deploy:
     needs: build
