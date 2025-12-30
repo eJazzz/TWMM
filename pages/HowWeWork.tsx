@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { HOW_WE_WORK_STEPS } from '../constants';
 
 const HowWeWork: React.FC = () => {
   return (
@@ -15,7 +14,7 @@ const HowWeWork: React.FC = () => {
           </p>
         </div>
 
-        {/* Timeline Visualization - MOVED TO TOP */}
+        {/* Timeline Visualization */}
         <div className="bg-clinical-deep text-white p-12 rounded-sm shadow-2xl mb-20">
           <h3 className="text-3xl font-serif font-bold mb-12 text-center">Project Engagement Timeline</h3>
           <div className="relative">
@@ -38,7 +37,7 @@ const HowWeWork: React.FC = () => {
         </div>
 
         {/* Engagement Framework */}
-        <section className="py-20 bg-clinical-light -mx-6 px-6 mb-32">
+        <section className="py-20 bg-clinical-light -mx-6 px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-clinical-gold mb-4">Engagement Framework</h2>
@@ -104,47 +103,6 @@ const HowWeWork: React.FC = () => {
             </div>
           </div>
         </section>
-
-        {/* 4-Stage Detail */}
-        <div className="space-y-24">
-          {HOW_WE_WORK_STEPS.map((step, idx) => (
-            <div key={idx} className={`flex flex-col md:flex-row gap-12 items-center ${idx % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
-              <div className="md:w-1/2">
-                <div className="text-8xl font-serif font-bold text-clinical-light mb-4">{step.step}</div>
-                <h3 className="text-3xl font-serif font-bold text-clinical-deep mb-6">{step.title}</h3>
-                <p className="text-clinical-slate text-lg mb-8 leading-relaxed">
-                  {idx === 0 && "We begin with a data harvest. We look at your AR aging, coding distributions, security logs, and employee satisfaction to build a clear 'As-Is' picture."}
-                  {idx === 1 && "Comparing your current performance against MGMA benchmarks and HIPAA mandates. We identify the specific gaps that represent your highest risk and largest opportunity."}
-                  {idx === 2 && "The 'Fix' phase. We embed into your team to update SOPs, reconfigure EHR settings, and train staff on new protocols. We fix what is broken, physically and digitally."}
-                  {idx === 3 && "Sustainability. We establish the reporting dashboards and meeting cadences required to ensure compliance remains a habit, not a project."}
-                </p>
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="bg-clinical-light p-4 rounded-sm">
-                    <span className="text-xs uppercase font-bold text-clinical-gold block mb-2">Process Focus</span>
-                    <span className="text-sm font-medium text-clinical-deep">
-                      {idx === 0 && "Data Harvesting"}
-                      {idx === 1 && "Gap Analysis"}
-                      {idx === 2 && "Remediation"}
-                      {idx === 3 && "Sustained Governance"}
-                    </span>
-                  </div>
-                  <div className="bg-clinical-deep p-4 rounded-sm">
-                    <span className="text-xs uppercase font-bold text-clinical-accent block mb-2 text-white/50">Primary Goal</span>
-                    <span className="text-sm font-medium text-white">
-                      {idx === 0 && "Contextual Insight"}
-                      {idx === 1 && "Risk Prioritization"}
-                      {idx === 2 && "Structural Fixes"}
-                      {idx === 3 && "Operational Habit"}
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div className="md:w-1/2 bg-clinical-light aspect-video flex items-center justify-center rounded-sm overflow-hidden">
-                 <img src={`https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800`} alt={step.title} className="rounded-sm shadow-xl object-cover w-full h-full opacity-90" />
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </div>
   );
