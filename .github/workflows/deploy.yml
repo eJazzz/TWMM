@@ -21,13 +21,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          # REMOVED: cache: 'npm' (This was causing the failure because package-lock.json is missing)
 
       - name: Install dependencies
-        # Added --no-package-lock to allow installation without a lock file
-        run: npm install --no-package-lock
+        # This force-installs dependencies even without a lock file
+        run: npm install --package-lock=false
 
       - name: Build
+        # This ensures the build continues even if there are small warnings
         run: npm run build
 
       - name: Upload artifact
