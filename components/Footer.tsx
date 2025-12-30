@@ -16,8 +16,8 @@ const Footer: React.FC = () => {
               Strategic operations, HIPAA compliance, and revenue governance for the modern outpatient clinic. Serving 1-20 provider practices nationwide.
             </p>
             <div className="flex space-x-4 text-xl">
-              <a href="#" className="hover:text-clinical-gold transition-colors"><i className="fab fa-linkedin"></i></a>
-              <a href="#" className="hover:text-clinical-gold transition-colors"><i className="fab fa-twitter"></i></a>
+              <a href="#" className="hover:text-clinical-gold transition-colors" aria-label="LinkedIn"><i className="fab fa-linkedin"></i></a>
+              <a href="#" className="hover:text-clinical-gold transition-colors" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
             </div>
           </div>
           
@@ -34,8 +34,8 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-bold mb-6 text-sm uppercase tracking-widest text-clinical-gold">Legal</h4>
             <ul className="space-y-4 text-sm text-clinical-accent">
-              <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
+              <li><Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link></li>
               <li className="pt-4 italic border-t border-white/10">
                 <span className="text-xs">No PHI Warning: This site does not collect or store Protected Health Information.</span>
               </li>
