@@ -23,6 +23,8 @@ const App: React.FC = () => {
             <Route path="/how-we-work" element={<HowWeWork />} />
             <Route path="/packages" element={<Packages />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
           </Routes>
         </main>
         <Footer />
