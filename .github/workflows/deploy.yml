@@ -16,15 +16,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          # REMOVED: cache: 'npm' (This was causing the failure because package-lock.json is missing)
+
       - name: Install dependencies
-        run: npm install
+        # Added --no-package-lock to allow installation without a lock file
+        run: npm install --no-package-lock
+
       - name: Build
         run: npm run build
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
