@@ -3,7 +3,7 @@ import React from 'react';
 
 const PrivacyPolicy: React.FC = () => {
   return (
-    <div className="bg-clinical-light py-20 animate-fade-in min-h-screen">
+    <div className="bg-clinical-light py-20 min-h-screen">
       <div className="container mx-auto px-6 max-w-4xl">
         <div className="bg-white p-12 shadow-sm border-t-8 border-clinical-deep">
           <h1 className="text-sm font-bold uppercase tracking-[0.3em] text-clinical-gold mb-4">Legal Framework</h1>
