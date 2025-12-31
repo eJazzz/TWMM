@@ -106,6 +106,7 @@ const Contact: React.FC = () => {
               )}
 
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Name and Clinic Row */}
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-xs font-bold uppercase text-clinical-slate mb-2">Full Name</label>
@@ -129,15 +130,28 @@ const Contact: React.FC = () => {
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-xs font-bold uppercase text-clinical-slate mb-2">Professional Email</label>
-                  <input 
-                    required 
-                    name="email"
-                    type="email" 
-                    className="w-full bg-clinical-light border-none p-4 text-sm focus:ring-2 focus:ring-clinical-gold outline-none" 
-                    placeholder="john@clinic.com" 
-                  />
+                {/* Email and Phone Row */}
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-xs font-bold uppercase text-clinical-slate mb-2">Professional Email</label>
+                    <input 
+                      required 
+                      name="email"
+                      type="email" 
+                      className="w-full bg-clinical-light border-none p-4 text-sm focus:ring-2 focus:ring-clinical-gold outline-none" 
+                      placeholder="john@clinic.com" 
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold uppercase text-clinical-slate mb-2">Phone Number</label>
+                    <input 
+                      required 
+                      name="phone"
+                      type="tel" 
+                      className="w-full bg-clinical-light border-none p-4 text-sm focus:ring-2 focus:ring-clinical-gold outline-none" 
+                      placeholder="(555) 000-0000" 
+                    />
+                  </div>
                 </div>
 
                 <div>
