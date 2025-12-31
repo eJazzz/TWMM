@@ -7,6 +7,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'What We Fix', path: '/what-we-fix' },
   { label: 'How We Work', path: '/how-we-work' },
   { label: 'Packages & Services', path: '/packages' },
+  { label: 'Resources', path: '/resources' },
   { label: 'Contact', path: '/contact' },
 ];
 
