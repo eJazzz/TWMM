@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
-      base: '/TWMM/', // This line fixes the blank page on GitHub Pages
+      base: '/', // This line fixes the blank page on GitHub Pages
       server: {
         port: 3000,
         host: '0.0.0.0',
