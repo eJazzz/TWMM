@@ -17,7 +17,7 @@ const RESOURCES: Resource[] = [
     category: 'Compliance',
     description: 'A Quick 10-point administrative and technical safeguard assessment for outpatient clinics.',
     icon: 'fa-shield-medical',
-    fileUrl: '/downloads/10-Point HIPAA Privacy and Security Self-Audit V201.pdf''
+    fileUrl: '/downloads/10-Point HIPAA Privacy and Security Self-Audit V201.pdf'
   },
   {
     id: 'rcm-integrity',
