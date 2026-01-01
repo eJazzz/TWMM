@@ -214,6 +214,7 @@ const Resources: React.FC = () => {
                   </p>
                   <a 
                     href={resource.fileUrl} 
+                    download
                     className="flex items-center justify-between font-bold text-xs uppercase tracking-widest text-clinical-deep border-t border-clinical-light pt-6 hover:text-clinical-gold transition-colors"
                   >
                     Download PDF <i className="fas fa-download ml-2"></i>
