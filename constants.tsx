@@ -13,7 +13,7 @@ export const NAV_ITEMS: NavItem[] = [
 
 export const PROBLEM_GRID = [
   { title: 'Ops & SOPs', icon: 'fa-clipboard-list', desc: 'Standardizing workflows to eliminate variance and clinician burnout.' },
-  { title: 'HIPAA & Compliance', icon: 'fa-shield-medical', desc: 'Rigorous audit-readiness and technical safeguard implementation.' },
+  { title: 'HIPAA & Compliance', icon: 'fa-shield-halved', desc: 'Rigorous audit-readiness and technical safeguard implementation.' },
   { title: 'Revenue Cycle', icon: 'fa-chart-line', desc: 'Capturing every dollar through better coding and billing governance.' },
   { title: 'EHR Optimization', icon: 'fa-laptop-medical', desc: 'Aligning technology with clinical reality, not against it.' },
   { title: 'VBC & MIPS', icon: 'fa-award', desc: 'Maximizing quality scores and navigating Value-Based Care contracts.' },
