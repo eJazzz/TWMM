@@ -13,11 +13,11 @@ interface Resource {
 const RESOURCES: Resource[] = [
   {
     id: 'hipaa-checklist',
-    title: 'HIPAA 2025 Audit Readiness Checklist',
+    title: 'HIPAA Audit Readiness Checklist',
     category: 'Compliance',
-    description: 'A 42-point administrative and technical safeguard assessment for outpatient clinics.',
+    description: 'A Quick 10-point administrative and technical safeguard assessment for outpatient clinics.',
     icon: 'fa-shield-medical',
-    fileUrl: '#'
+    fileUrl: '/downloads/10-Point HIPAA Privacy and Security Self-Audit V201.pdf''
   },
   {
     id: 'rcm-integrity',
