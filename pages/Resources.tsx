@@ -25,7 +25,7 @@ const RESOURCES: Resource[] = [
     category: 'Finance',
     description: 'Learn how to identify the top 5 coding leaks that are costing your clinic 15%+ in lost revenue.',
     icon: 'fa-chart-pie',
-    fileUrl: '#'
+    fileUrl: '/downloads/Revenue Integrity Scan V201.pdf'
   },
   {
     id: 'clinic-sop-template',
@@ -33,7 +33,7 @@ const RESOURCES: Resource[] = [
     category: 'Operations',
     description: 'Standardize patient intake and eligibility verification to reduce front-end claim denials.',
     icon: 'fa-file-signature',
-    fileUrl: '#'
+    fileUrl: '/downloads/Front-Desk Master SOP 201.pdf'
   },
   {
     id: 'vendor-sla',
@@ -41,7 +41,7 @@ const RESOURCES: Resource[] = [
     category: 'Governance',
     description: 'Templates for managing IT, RCM, and EHR vendors to ensure SLA compliance.',
     icon: 'fa-handshake',
-    fileUrl: '#'
+    fileUrl: '/downloads/The Vendor Governance Toolkit 201.pdf'
   }
 ];
 
