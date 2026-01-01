@@ -16,7 +16,7 @@ const RESOURCES: Resource[] = [
     title: 'HIPAA Audit Readiness Checklist',
     category: 'Compliance',
     description: 'A Quick 10-point administrative and technical safeguard assessment for outpatient clinics.',
-    icon: 'fa-shield-medical',
+    icon: 'fa-shield-halved',
     fileUrl: '/downloads/10-Point HIPAA Privacy and Security Self-Audit V201.pdf'
   },
   {
