@@ -55,7 +55,7 @@ const Home: React.FC = () => {
                 <span className="font-bold text-clinical-deep">Revenue Cycle</span>
               </div>
               <div className="flex items-center space-x-2 grayscale hover:grayscale-0 transition-all">
-                <i className="fas fa-lock text-2xl text-clinical-blue"></i>
+                <i className="fas fa-solid fa-user-shield text-2xl text-clinical-blue"></i>
                 <span className="font-bold text-clinical-deep">HIPAA Compliance</span>
               </div>
             </div>
