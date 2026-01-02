@@ -21,9 +21,9 @@ const Navbar: React.FC = () => {
           <img 
             src="/TWMM_Logo_101.png" 
             alt="Transworld Medical Management Logo" 
-            className="h-16 w-auto" 
+            className="h-14 w-auto" 
           />
-          <div className="w-10 h-10 bg-clinical-gold rounded-sm flex items-center justify-center font-bold text-clinical-deep">TWMM</div>
+          <div className="w-10 h-10 bg-clinical-gold rounded-sm flex items-center justify-center font-bold text-clinical-deep">TWM</div>
           <div className="flex flex-col leading-tight">
             <span className={`font-serif font-bold text-xl tracking-tight ${isScrolled ? 'text-white' : 'text-clinical-deep'}`}>TransWorld</span>
             <span className={`text-[10px] uppercase tracking-widest ${isScrolled ? 'text-clinical-accent' : 'text-clinical-slate'}`}>Medical Management</span>
