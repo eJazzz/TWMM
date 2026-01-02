@@ -28,9 +28,9 @@ const Navbar: React.FC = () => {
           <div className="flex flex-col leading-tight">
             <span className={`font-serif font-bold text-xl tracking-tight ${isScrolled ? 'text-white' : 'text-clinical-deep'}`}>TransWorld</span>
             <span className={`text-[10px] uppercase tracking-widest ${isScrolled ? 'text-clinical-accent' : 'text-clinical-slate'}`}>Medical Management</span>
-          </div>
-          </Link>
+          </div> 
           */} 
+          </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8 items-center">
