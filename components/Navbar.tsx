@@ -18,6 +18,11 @@ const Navbar: React.FC = () => {
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-clinical-deep shadow-lg py-3' : 'bg-transparent py-5'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
         <Link to="/" className="flex items-center space-x-2">
+          <img 
+            src="/TWMM_Logo_101.jpg" 
+            alt="Transworld Medical Management Logo" 
+            className="h-12 w-auto" 
+          />
           <div className="w-10 h-10 bg-clinical-gold rounded-sm flex items-center justify-center font-bold text-clinical-deep">TW</div>
           <div className="flex flex-col leading-tight">
             <span className={`font-serif font-bold text-xl tracking-tight ${isScrolled ? 'text-white' : 'text-clinical-deep'}`}>TW Medical</span>
