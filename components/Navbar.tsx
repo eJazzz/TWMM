@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
           <img 
             src="/TWMM_Logo_101.png" 
             alt="Transworld Medical Management Logo" 
-            className="h-12 w-auto" 
+            className="h-16 w-auto" 
           />
           <div className="w-10 h-10 bg-clinical-gold rounded-sm flex items-center justify-center font-bold text-clinical-deep">TW</div>
           <div className="flex flex-col leading-tight">
