@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-6 flex justify-between items-center">
         <Link to="/" className="flex items-center space-x-2">
           <img 
-            src="/TWMM_Logo_105.png" 
+            src="/TWMM_Logo_103.png" 
             alt="Transworld Medical Management Logo" 
             className="h-1 w-auto" 
           />
