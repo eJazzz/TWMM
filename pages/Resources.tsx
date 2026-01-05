@@ -57,6 +57,18 @@ const Resources: React.FC = () => {
     }
   }, []);
 
+  const BONUS_MATERIALS = [
+      {
+        id: 'hipaa-video',
+        title: 'HIPAA Compliance Masterclass',
+        category: 'Video',
+        description: 'A 20-minute walkthrough of the 2026 audit requirements.',
+        type: 'video',
+        fileUrl: '#'
+      },
+      // Add other items here...
+    ];
+
   const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
