@@ -223,6 +223,51 @@ const Resources: React.FC = () => {
               ))}
             </div>
 
+            {/* Bonus Materials Section */}
+            <div className="mb-12">
+              <h2 className="text-sm font-bold uppercase tracking-[0.4em] text-clinical-gold mb-4">Premium Bonus Content</h2>
+              <h3 className="text-3xl font-serif font-bold text-clinical-deep mb-8">Video Workshops & Advanced Guides</h3>
+              
+              <div className="grid md:grid-cols-3 gap-8">
+                {BONUS_MATERIALS.map((bonus) => (
+                  <div key={bonus.id} className="bg-white overflow-hidden rounded-sm shadow-sm hover:shadow-lg transition-all border border-clinical-light flex flex-col group">
+                    {bonus.type === 'video' ? (
+                      <div className="aspect-video bg-clinical-deep relative flex items-center justify-center overflow-hidden">
+                        {/* Video Placeholder Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-clinical-deep/80 to-transparent z-10"></div>
+                        <i className="fas fa-play text-4xl text-white/40 group-hover:text-clinical-gold group-hover:scale-110 transition-all z-20"></i>
+                        <div className="absolute bottom-4 left-4 z-20">
+                          <span className="bg-clinical-gold text-clinical-deep text-[10px] font-bold px-2 py-1 rounded-sm uppercase tracking-tighter">Premium Video</span>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="aspect-video bg-clinical-light relative flex items-center justify-center">
+                        <i className="fas fa-file-pdf text-4xl text-clinical-accent/30"></i>
+                      </div>
+                    )}
+                    
+                    <div className="p-8 flex-grow flex flex-col">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-clinical-accent mb-2">{bonus.category}</span>
+                      <h4 className="text-xl font-serif font-bold text-clinical-deep mb-4 leading-tight">{bonus.title}</h4>
+                      <p className="text-sm text-clinical-slate mb-8 leading-relaxed flex-grow">
+                        {bonus.description}
+                      </p>
+                      
+                      {bonus.type === 'video' ? (
+                        <button className="flex items-center font-bold text-xs uppercase tracking-widest text-clinical-gold hover:text-clinical-deep transition-colors">
+                          Watch Masterclass <i className="fas fa-external-link-alt ml-2"></i>
+                        </button>
+                      ) : (
+                        <a href={bonus.fileUrl} className="flex items-center font-bold text-xs uppercase tracking-widest text-clinical-blue hover:text-clinical-gold transition-colors">
+                          Access Document <i className="fas fa-arrow-right ml-2"></i>
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             <div className="mt-20 bg-clinical-deep p-12 rounded-sm text-center relative overflow-hidden">
               <div className="relative z-10">
                 <h3 className="text-2xl font-serif font-bold text-white mb-4">Need help implementing these frameworks?</h3>
