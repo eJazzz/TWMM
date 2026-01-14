@@ -8,16 +8,18 @@ interface Resource {
   description: string;
   icon: string;
   fileUrl: string;
+  type: 'pdf' | 'video' | 'alert';
 }
 
-const RESOURCES: Resource[] = [
+const CORE_RESOURCES: Resource[] = [
   {
     id: 'hipaa-checklist',
-    title: 'HIPAA Audit Readiness Checklist',
+    title: 'HIPAA 2025 Audit Readiness Checklist',
     category: 'Compliance',
-    description: 'A Quick 10-point administrative and technical safeguard assessment for outpatient clinics.',
+    description: 'A 42-point administrative and technical safeguard assessment for outpatient clinics.',
     icon: 'fa-shield-halved',
-    fileUrl: '/downloads/10-Point HIPAA Privacy and Security Self-Audit V201.pdf'
+    fileUrl: '#',
+    type: 'pdf'
   },
   {
     id: 'rcm-integrity',
@@ -25,7 +27,8 @@ const RESOURCES: Resource[] = [
     category: 'Finance',
     description: 'Learn how to identify the top 5 coding leaks that are costing your clinic 15%+ in lost revenue.',
     icon: 'fa-chart-pie',
-    fileUrl: '/downloads/Revenue Integrity Scan V201.pdf'
+    fileUrl: '#',
+    type: 'pdf'
   },
   {
     id: 'clinic-sop-template',
@@ -33,7 +36,8 @@ const RESOURCES: Resource[] = [
     category: 'Operations',
     description: 'Standardize patient intake and eligibility verification to reduce front-end claim denials.',
     icon: 'fa-file-signature',
-    fileUrl: '/downloads/Front-Desk Master SOP 201.pdf'
+    fileUrl: '#',
+    type: 'pdf'
   },
   {
     id: 'vendor-sla',
@@ -41,7 +45,47 @@ const RESOURCES: Resource[] = [
     category: 'Governance',
     description: 'Templates for managing IT, RCM, and EHR vendors to ensure SLA compliance.',
     icon: 'fa-handshake',
-    fileUrl: '/downloads/The Vendor Governance Toolkit 201.pdf'
+    fileUrl: '#',
+    type: 'pdf'
+  }
+];
+
+const BONUS_MATERIALS: Resource[] = [
+  {
+    id: 'hipaa-2026-poster',
+    title: 'HIPAA 2026 Compliance Alert Poster',
+    category: 'Regulatory Alert',
+    description: 'Critical guide for the 2026 Security Rule overhaul. Includes the new 15-day reporting mandate and prescriptive safeguard updates.',
+    icon: 'fa-triangle-exclamation',
+    fileUrl: '#',
+    type: 'alert'
+  },
+  {
+    id: 'video-workshop-1',
+    title: 'Mastering the EHR Transition',
+    category: 'Video Workshop',
+    description: 'A 20-minute masterclass on navigating EHR migrations without losing billing continuity.',
+    icon: 'fa-play-circle',
+    fileUrl: '#',
+    type: 'video'
+  },
+  {
+    id: 'bonus-cyber-guide',
+    title: 'Employee Cyber-Hygiene Handbook',
+    category: 'Manual',
+    description: 'A printable guide for staff on preventing social engineering and phishing attacks.',
+    icon: 'fa-user-lock',
+    fileUrl: '#',
+    type: 'pdf'
+  },
+  {
+    id: 'video-workshop-2',
+    title: 'Payer Negotiation Strategies',
+    category: 'Video Workshop',
+    description: 'Learn how to leverage quality data to secure better rates from commercial payers.',
+    icon: 'fa-video',
+    fileUrl: '#',
+    type: 'video'
   }
 ];
 
@@ -56,18 +100,6 @@ const Resources: React.FC = () => {
       setIsRegistered(true);
     }
   }, []);
-
-  const BONUS_MATERIALS = [
-      {
-        id: 'hipaa-video',
-        title: 'HIPAA Compliance Masterclass',
-        category: 'Video',
-        description: 'A 20-minute walkthrough of the 2026 audit requirements.',
-        type: 'video',
-        fileUrl: '#'
-      },
-      // Add other items here...
-    ];
 
   const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -121,7 +153,7 @@ const Resources: React.FC = () => {
                     { icon: 'fa-check-double', text: 'Step-by-step HIPAA Audit Evidence Packs' },
                     { icon: 'fa-chart-line', text: 'Revenue Integrity & Billing Checklists' },
                     { icon: 'fa-clipboard-list', text: 'Pre-built Operational SOPs' },
-                    { icon: 'fa-lock', text: 'Cybersecurity Governance Frameworks' }
+                    { icon: 'fa-video', text: 'Bonus Workshop Video Masterclasses' }
                   ].map((item, idx) => (
                     <li key={idx} className="flex items-start">
                       <div className="w-8 h-8 bg-clinical-gold/20 rounded-full flex items-center justify-center text-clinical-gold mr-4 flex-shrink-0">
@@ -138,6 +170,9 @@ const Resources: React.FC = () => {
 
               {/* Form Side */}
               <div className="bg-white p-12">
+                <div className="mb-6 flex justify-center">
+                  <img src="https://raw.githubusercontent.com/stackblitz/stackblitz-images/main/transworld-logo.png" alt="Logo" className="h-10 opacity-50 grayscale" />
+                </div>
                 <h4 className="text-xl font-serif font-bold text-clinical-deep mb-2">Unlock Instant Access</h4>
                 <p className="text-sm text-clinical-slate mb-8">Register once to unlock the entire resource library.</p>
                 
@@ -196,11 +231,11 @@ const Resources: React.FC = () => {
           </div>
         ) : (
           <div className="max-w-6xl mx-auto">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
               <div className="max-w-2xl">
                 <h1 className="text-sm font-bold uppercase tracking-[0.4em] text-clinical-gold mb-4">Resource Vault Unlocked</h1>
-                <h2 className="text-4xl font-serif font-bold text-clinical-deep mb-4">Operational Governance Assets</h2>
-                <p className="text-clinical-slate">Download the frameworks used by Transworld Medical Management to stabilize and scale independent practices.</p>
+                <h2 className="text-4xl font-serif font-bold text-clinical-deep mb-4">Core Governance Assets</h2>
+                <p className="text-clinical-slate">Foundational frameworks for independent medical practice leadership.</p>
               </div>
               <button 
                 onClick={() => {
@@ -213,8 +248,9 @@ const Resources: React.FC = () => {
               </button>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {RESOURCES.map((resource) => (
+            {/* Core Resources Grid */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
+              {CORE_RESOURCES.map((resource) => (
                 <div key={resource.id} className="bg-white p-8 rounded-sm shadow-sm hover:shadow-xl transition-all border-b-4 border-clinical-light hover:border-clinical-gold group flex flex-col h-full">
                   <div className="w-12 h-12 bg-clinical-light rounded-sm flex items-center justify-center text-clinical-blue mb-6 group-hover:bg-clinical-gold group-hover:text-clinical-deep transition-colors">
                     <i className={`fas ${resource.icon} text-xl`}></i>
@@ -226,7 +262,6 @@ const Resources: React.FC = () => {
                   </p>
                   <a 
                     href={resource.fileUrl} 
-                    download
                     className="flex items-center justify-between font-bold text-xs uppercase tracking-widest text-clinical-deep border-t border-clinical-light pt-6 hover:text-clinical-gold transition-colors"
                   >
                     Download PDF <i className="fas fa-download ml-2"></i>
@@ -236,7 +271,7 @@ const Resources: React.FC = () => {
             </div>
 
             {/* Bonus Materials Section */}
-             <div className="mb-12">
+            <div className="mb-12">
               <h2 className="text-sm font-bold uppercase tracking-[0.4em] text-clinical-gold mb-4">Premium Bonus Content</h2>
               <h3 className="text-3xl font-serif font-bold text-clinical-deep mb-8">Video Workshops & Advanced Guides</h3>
               
@@ -294,7 +329,7 @@ const Resources: React.FC = () => {
               </div>
             </div>
 
-            <div className="mt-20 bg-clinical-deep p-12 rounded-sm text-center relative overflow-hidden">
+            <div className="mt-24 bg-clinical-deep p-12 rounded-sm text-center relative overflow-hidden">
               <div className="relative z-10">
                 <h3 className="text-2xl font-serif font-bold text-white mb-4">Need help implementing these frameworks?</h3>
                 <p className="text-clinical-accent mb-8 max-w-xl mx-auto">Our advisors can conduct a 1:1 gap analysis to tailor these resources to your specific clinic workflow.</p>
