@@ -58,7 +58,7 @@ const BONUS_MATERIALS: Resource[] = [
     category: 'Regulatory Alert',
     description: 'Essential 2026 Roadmap. Covers the $9B prescriptive Security Rule overhaul, the critical new 15-day breach reporting window, and 2024 encryption mandates.',
     icon: 'fa-triangle-exclamation',
-    fileUrl: '#',
+    fileUrl: '\HIPAA_Poster_TWMM_202_V2.pdf',
     type: 'alert'
   },
   {
