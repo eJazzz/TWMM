@@ -236,11 +236,11 @@ const Resources: React.FC = () => {
             </div>
 
             {/* Bonus Materials Section */}
-            <div className="mb-12">
+             <div className="mb-12">
               <h2 className="text-sm font-bold uppercase tracking-[0.4em] text-clinical-gold mb-4">Premium Bonus Content</h2>
               <h3 className="text-3xl font-serif font-bold text-clinical-deep mb-8">Video Workshops & Advanced Guides</h3>
               
-              <div className="grid md:grid-cols-3 gap-8">
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {BONUS_MATERIALS.map((bonus) => (
                   <div key={bonus.id} className="bg-white overflow-hidden rounded-sm shadow-sm hover:shadow-lg transition-all border border-clinical-light flex flex-col group">
                     {bonus.type === 'video' ? (
@@ -252,6 +252,14 @@ const Resources: React.FC = () => {
                           <span className="bg-clinical-gold text-clinical-deep text-[10px] font-bold px-2 py-1 rounded-sm uppercase tracking-tighter">Premium Video</span>
                         </div>
                       </div>
+                    ) : bonus.type === 'alert' ? (
+                      <div className="aspect-video bg-orange-50 relative flex items-center justify-center overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-transparent"></div>
+                        <i className="fas fa-triangle-exclamation text-5xl text-orange-500/30 group-hover:scale-110 group-hover:text-orange-500/50 transition-all"></i>
+                        <div className="absolute top-4 right-4">
+                          <span className="bg-red-600 text-white text-[9px] font-bold px-2 py-1 rounded-sm uppercase animate-pulse">Critical Update</span>
+                        </div>
+                      </div>
                     ) : (
                       <div className="aspect-video bg-clinical-light relative flex items-center justify-center">
                         <i className="fas fa-file-pdf text-4xl text-clinical-accent/30"></i>
@@ -259,7 +267,9 @@ const Resources: React.FC = () => {
                     )}
                     
                     <div className="p-8 flex-grow flex flex-col">
-                      <span className="text-[10px] font-bold uppercase tracking-widest text-clinical-accent mb-2">{bonus.category}</span>
+                      <span className={`text-[10px] font-bold uppercase tracking-widest mb-2 ${bonus.type === 'alert' ? 'text-red-600' : 'text-clinical-accent'}`}>
+                        {bonus.category}
+                      </span>
                       <h4 className="text-xl font-serif font-bold text-clinical-deep mb-4 leading-tight">{bonus.title}</h4>
                       <p className="text-sm text-clinical-slate mb-8 leading-relaxed flex-grow">
                         {bonus.description}
@@ -269,6 +279,10 @@ const Resources: React.FC = () => {
                         <button className="flex items-center font-bold text-xs uppercase tracking-widest text-clinical-gold hover:text-clinical-deep transition-colors">
                           Watch Masterclass <i className="fas fa-external-link-alt ml-2"></i>
                         </button>
+                      ) : bonus.type === 'alert' ? (
+                        <a href={bonus.fileUrl} className="flex items-center font-bold text-xs uppercase tracking-widest text-red-700 hover:text-clinical-deep transition-colors">
+                          Download Alert Poster <i className="fas fa-download ml-2"></i>
+                        </a>
                       ) : (
                         <a href={bonus.fileUrl} className="flex items-center font-bold text-xs uppercase tracking-widest text-clinical-blue hover:text-clinical-gold transition-colors">
                           Access Document <i className="fas fa-arrow-right ml-2"></i>
