@@ -9,6 +9,7 @@ interface Resource {
   icon: string;
   fileUrl: string;
   type: 'pdf' | 'video' | 'alert';
+  embedId?: string; // Added for YouTube embeds
 }
 
 const CORE_RESOURCES: Resource[] = [
@@ -52,10 +53,10 @@ const CORE_RESOURCES: Resource[] = [
 
 const BONUS_MATERIALS: Resource[] = [
   {
-    id: 'hipaa-2026-poster',
-    title: 'HIPAA 2026 Compliance Alert Poster',
+    id: 'hipaa-2026-alert',
+    title: 'HIPAA 2026 Compliance Alert',
     category: 'Regulatory Alert',
-    description: 'Critical guide for the 2026 Security Rule overhaul. Includes the new 15-day reporting mandate and prescriptive safeguard updates.',
+    description: 'Essential 2026 Roadmap. Covers the $9B prescriptive Security Rule overhaul, the critical new 15-day breach reporting window, and 2024 encryption mandates.',
     icon: 'fa-triangle-exclamation',
     fileUrl: '#',
     type: 'alert'
@@ -64,16 +65,17 @@ const BONUS_MATERIALS: Resource[] = [
     id: 'video-workshop-1',
     title: 'Mastering the EHR Transition',
     category: 'Video Workshop',
-    description: 'A 20-minute masterclass on navigating EHR migrations without losing billing continuity.',
+    fileUrl: 'https://youtu.be/1DPoRWDCEBc?si=OS5yMeveOhtnSzyx', 
+    embedId: '1DPoRWDCEBc',
+    description: 'A high-impact masterclass on navigating EHR migrations without losing billing continuity or patient data integrity.',
     icon: 'fa-play-circle',
-    fileUrl: '#',
     type: 'video'
   },
   {
     id: 'bonus-cyber-guide',
     title: 'Employee Cyber-Hygiene Handbook',
     category: 'Manual',
-    description: 'A printable guide for staff on preventing social engineering and phishing attacks.',
+    description: 'A printable guide for staff on preventing social engineering, phishing attacks, and credential harvesting.',
     icon: 'fa-user-lock',
     fileUrl: '#',
     type: 'pdf'
@@ -82,7 +84,7 @@ const BONUS_MATERIALS: Resource[] = [
     id: 'video-workshop-2',
     title: 'Payer Negotiation Strategies',
     category: 'Video Workshop',
-    description: 'Learn how to leverage quality data to secure better rates from commercial payers.',
+    description: 'Learn how to leverage clinical quality data to secure better reimbursement rates from commercial payers.',
     icon: 'fa-video',
     fileUrl: '#',
     type: 'video'
@@ -93,6 +95,7 @@ const Resources: React.FC = () => {
   const [isRegistered, setIsRegistered] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
   useEffect(() => {
     const registered = localStorage.getItem('twmm_resources_access');
@@ -131,8 +134,33 @@ const Resources: React.FC = () => {
     }
   };
 
+  const closeVideo = () => setActiveVideo(null);
+
   return (
     <div className="bg-clinical-light min-h-[90vh] py-16 animate-fade-in">
+      {/* Video Modal Overlay */}
+      {activeVideo && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-clinical-deep/95 backdrop-blur-md animate-fade-in">
+          <button 
+            onClick={closeVideo}
+            className="absolute top-8 right-8 text-white text-3xl hover:text-clinical-gold transition-colors"
+          >
+            <i className="fas fa-times"></i>
+          </button>
+          <div className="w-full max-w-5xl aspect-video shadow-2xl bg-black rounded-sm overflow-hidden">
+            <iframe 
+              width="100%" 
+              height="100%" 
+              src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1`} 
+              title="YouTube video player" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+      )}
+
       <div className="container mx-auto px-6">
         {!isRegistered ? (
           <div className="max-w-5xl mx-auto">
@@ -262,6 +290,8 @@ const Resources: React.FC = () => {
                   </p>
                   <a 
                     href={resource.fileUrl} 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center justify-between font-bold text-xs uppercase tracking-widest text-clinical-deep border-t border-clinical-light pt-6 hover:text-clinical-gold transition-colors"
                   >
                     Download PDF <i className="fas fa-download ml-2"></i>
@@ -279,14 +309,17 @@ const Resources: React.FC = () => {
                 {BONUS_MATERIALS.map((bonus) => (
                   <div key={bonus.id} className="bg-white overflow-hidden rounded-sm shadow-sm hover:shadow-lg transition-all border border-clinical-light flex flex-col group">
                     {bonus.type === 'video' ? (
-                      <div className="aspect-video bg-clinical-deep relative flex items-center justify-center overflow-hidden">
+                      <button 
+                        onClick={() => bonus.embedId && setActiveVideo(bonus.embedId)}
+                        className="aspect-video bg-clinical-deep relative flex items-center justify-center overflow-hidden w-full"
+                      >
                         {/* Video Placeholder Overlay */}
                         <div className="absolute inset-0 bg-gradient-to-t from-clinical-deep/80 to-transparent z-10"></div>
                         <i className="fas fa-play text-4xl text-white/40 group-hover:text-clinical-gold group-hover:scale-110 transition-all z-20"></i>
                         <div className="absolute bottom-4 left-4 z-20">
-                          <span className="bg-clinical-gold text-clinical-deep text-[10px] font-bold px-2 py-1 rounded-sm uppercase tracking-tighter">Premium Video</span>
+                          <span className="bg-clinical-gold text-clinical-deep text-[10px] font-bold px-2 py-1 rounded-sm uppercase tracking-tighter">Watch Now</span>
                         </div>
-                      </div>
+                      </button>
                     ) : bonus.type === 'alert' ? (
                       <div className="aspect-video bg-orange-50 relative flex items-center justify-center overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-transparent"></div>
@@ -311,15 +344,28 @@ const Resources: React.FC = () => {
                       </p>
                       
                       {bonus.type === 'video' ? (
-                        <button className="flex items-center font-bold text-xs uppercase tracking-widest text-clinical-gold hover:text-clinical-deep transition-colors">
-                          Watch Masterclass <i className="fas fa-external-link-alt ml-2"></i>
+                        <button 
+                          onClick={() => bonus.embedId && setActiveVideo(bonus.embedId)}
+                          className="flex items-center font-bold text-xs uppercase tracking-widest text-clinical-gold hover:text-clinical-deep transition-colors"
+                        >
+                          Watch Masterclass <i className="fas fa-play-circle ml-2"></i>
                         </button>
                       ) : bonus.type === 'alert' ? (
-                        <a href={bonus.fileUrl} className="flex items-center font-bold text-xs uppercase tracking-widest text-red-700 hover:text-clinical-deep transition-colors">
+                        <a 
+                          href={bonus.fileUrl} 
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center font-bold text-xs uppercase tracking-widest text-red-700 hover:text-clinical-deep transition-colors"
+                        >
                           Download Alert Poster <i className="fas fa-download ml-2"></i>
                         </a>
                       ) : (
-                        <a href={bonus.fileUrl} className="flex items-center font-bold text-xs uppercase tracking-widest text-clinical-blue hover:text-clinical-gold transition-colors">
+                        <a 
+                          href={bonus.fileUrl} 
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center font-bold text-xs uppercase tracking-widest text-clinical-blue hover:text-clinical-gold transition-colors"
+                        >
                           Access Document <i className="fas fa-arrow-right ml-2"></i>
                         </a>
                       )}
