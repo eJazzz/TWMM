@@ -63,11 +63,11 @@ const BONUS_MATERIALS: Resource[] = [
   },
   {
     id: 'video-workshop-1',
-    title: 'Mastering the EHR Transition',
-    category: 'Video Workshop',
+    title: 'AI Primer for Physicians',
+    category: 'Video Guides',
     fileUrl: 'https://youtu.be/1DPoRWDCEBc?si=OS5yMeveOhtnSzyx', 
     embedId: '1DPoRWDCEBc',
-    description: 'A high-impact masterclass on navigating EHR migrations without losing billing continuity or patient data integrity.',
+    description: 'Whether you’re a busy clinician, a healthcare leader, or simply curious about how AI can make your life easier, this short video gives you a practical, jargon‑free overview of what’s possible today. In this quick guide, you’ll learn how modern AI tools can support you in your professional and personal life.',
     icon: 'fa-play-circle',
     type: 'video'
   },
