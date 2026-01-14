@@ -70,7 +70,8 @@ const BONUS_MATERIALS: Resource[] = [
     description: 'Whether you’re a busy clinician, a healthcare leader, or simply curious about how AI can make your life easier, this short video gives you a practical, jargon‑free overview of what’s possible today. In this quick guide, you’ll learn how modern AI tools can support you in your professional and personal life.',
     icon: 'fa-play-circle',
     type: 'video'
-  },
+  }
+  /*
   {
     id: 'bonus-cyber-guide',
     title: 'Employee Cyber-Hygiene Handbook',
@@ -88,7 +89,7 @@ const BONUS_MATERIALS: Resource[] = [
     icon: 'fa-video',
     fileUrl: '#',
     type: 'video'
-  }
+  } */
 ];
 
 const Resources: React.FC = () => {
