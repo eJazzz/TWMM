@@ -19,7 +19,7 @@ const CORE_RESOURCES: Resource[] = [
     category: 'Compliance',
     description: 'A 42-point administrative and technical safeguard assessment for outpatient clinics.',
     icon: 'fa-shield-halved',
-    fileUrl: '#',
+    fileUrl: '\downloads\10-Point HIPAA Privacy and Security Self-Audit V201.pdf',
     type: 'pdf'
   },
   {
@@ -28,7 +28,7 @@ const CORE_RESOURCES: Resource[] = [
     category: 'Finance',
     description: 'Learn how to identify the top 5 coding leaks that are costing your clinic 15%+ in lost revenue.',
     icon: 'fa-chart-pie',
-    fileUrl: '#',
+    fileUrl: '\downloads\Revenue Integrity Scan V202.pdf',
     type: 'pdf'
   },
   {
@@ -37,7 +37,7 @@ const CORE_RESOURCES: Resource[] = [
     category: 'Operations',
     description: 'Standardize patient intake and eligibility verification to reduce front-end claim denials.',
     icon: 'fa-file-signature',
-    fileUrl: '#',
+    fileUrl: '\downloads\Front-Desk Master SOP 201.pdf',
     type: 'pdf'
   },
   {
@@ -46,7 +46,7 @@ const CORE_RESOURCES: Resource[] = [
     category: 'Governance',
     description: 'Templates for managing IT, RCM, and EHR vendors to ensure SLA compliance.',
     icon: 'fa-handshake',
-    fileUrl: '#',
+    fileUrl: '\downloads\The Vendor Governance Toolkit 201.pdf',
     type: 'pdf'
   }
 ];
@@ -58,7 +58,7 @@ const BONUS_MATERIALS: Resource[] = [
     category: 'Regulatory Alert',
     description: 'Essential 2026 Roadmap. Covers the $9B prescriptive Security Rule overhaul, the critical new 15-day breach reporting window, and 2024 encryption mandates.',
     icon: 'fa-triangle-exclamation',
-    fileUrl: '\HIPAA_Poster_TWMM_202_V2.pdf',
+    fileUrl: '\downloads\HIPAA_Poster_TWMM_202_V2.pdf',
     type: 'alert'
   },
   {
