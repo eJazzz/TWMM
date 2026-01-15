@@ -27,7 +27,7 @@ const Home: React.FC = () => {
     },
     {
       type: 'urgent',
-      badge: '2025 COMPLIANCE DEADLINE',
+      badge: '2026 COMPLIANCE DEADLINE',
       title: 'Mandatory <span class="text-clinical-gold">SRA & Training</span>.',
       desc: 'Annual Security Risk Assessments and Staff Training are not optional. We implement the full framework in under 30 days.',
       ctaPrimary: { text: 'Lock In My Audit', link: '/contact' },
