@@ -1,9 +1,20 @@
 
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { PACKAGES, SERVICE_LIBRARY } from '../constants';
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { PACKAGES, SERVICE_LIBRARY, SPECIAL_BUNDLES } from '../constants';
 
 const Packages: React.FC = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.slice(1));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
+
   return (
     <div className="bg-clinical-light py-20 animate-fade-in">
       <div className="container mx-auto px-6">
@@ -64,6 +75,36 @@ const Packages: React.FC = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Special Bundles Section */}
+        <div className="mb-32">
+          <div className="text-center mb-16">
+            <h2 className="text-sm font-bold uppercase tracking-[0.4em] text-clinical-gold mb-4">Targeted Solutions</h2>
+            <h3 className="text-4xl font-serif font-bold text-clinical-deep">Annual Compliance Bundles</h3>
+            <p className="text-clinical-slate mt-4 max-w-2xl mx-auto">Fixed-fee specialized engagements to handle mandatory annual regulatory requirements.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {SPECIAL_BUNDLES.map((bundle) => (
+              <div key={bundle.id} id={bundle.id} className="bg-clinical-deep text-white p-10 rounded-sm shadow-xl border-b-4 border-clinical-gold hover:translate-y-[-4px] transition-transform scroll-mt-24">
+                <div className="flex items-start justify-between mb-8">
+                  <div className="w-16 h-16 bg-white/10 rounded-sm flex items-center justify-center text-clinical-gold text-2xl">
+                    <i className={`fas ${bundle.icon}`}></i>
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] bg-clinical-gold text-clinical-deep px-3 py-1 rounded-full">{bundle.category}</span>
+                </div>
+                <h4 className="text-2xl font-serif font-bold mb-4">{bundle.name}</h4>
+                <p className="text-clinical-accent mb-10 leading-relaxed">{bundle.description}</p>
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-white/10 pt-8">
+                  <span className="text-xl font-serif font-bold text-clinical-gold">{bundle.pricing}</span>
+                  <Link to="/contact" className="w-full sm:w-auto bg-white text-clinical-deep px-8 py-3 rounded-sm font-bold text-sm uppercase tracking-widest hover:bg-clinical-gold transition-colors text-center">
+                    Enquire Now
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Service Library */}
