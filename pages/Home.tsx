@@ -59,7 +59,7 @@ const Home: React.FC = () => {
         {slides.map((slide, index) => (
           <div 
             key={index}
-            className={`absolute inset-0 w-full h-full flex items-center transition-opacity duration-1000 z-10 ${index === currentSlide ? 'opacity-100 visible' : 'opacity-0 invisible'} ${slide.bgClass}`}
+            className={`absolute inset-0 w-full h-full flex items-center transition-opacity duration-800 z-10 ${index === currentSlide ? 'opacity-100 visible' : 'opacity-0 invisible'} ${slide.bgClass}`}
           >
             {/* Abstract background elements */}
             <div className="absolute top-0 right-0 w-1/2 h-full bg-clinical-blue transform skew-x-12 translate-x-1/4 opacity-10"></div>
