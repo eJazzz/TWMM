@@ -7,37 +7,37 @@ const Home: React.FC = () => {
   return (
     <div className="animate-fade-in">
       {/* Hero Section */}
-      <section className="relative min-h-[85vh] py-32 flex items-center bg-clinical-deep overflow-hidden">
+      <section className="relative py-16 lg:py-24 flex items-center bg-clinical-deep overflow-hidden">
         {/* Abstract background elements */}
         <div className="absolute top-0 right-0 w-1/2 h-full bg-clinical-blue transform skew-x-12 translate-x-1/4 opacity-20"></div>
 
-        <div className="container mx-auto px-6 relative z-10 mt-10">
+        <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl">
-            <span className="inline-block px-4 py-1.5 mb-6 text-[11px] font-bold uppercase tracking-widest text-clinical-gold-dark border border-clinical-gold/20 rounded-sm bg-black/10">
+            <span className="inline-block px-4 py-1.5 mb-4 text-[11px] font-bold uppercase tracking-widest text-clinical-gold border border-clinical-gold/20 rounded-sm bg-black/20">
               STABILIZING INDEPENDENT PRACTICES
             </span>
-            <h1 className="text-5xl md:text-7xl font-sans font-bold text-white mb-6 leading-none tracking-tight">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-sans font-bold text-white mb-4 leading-none tracking-tight">
               Clinical Governance <br className="hidden md:block" />
               For the Modern Era.
             </h1>
-            <p className="text-xl text-clinical-slate mb-14 leading-relaxed font-light max-w-3xl">
+            <p className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed font-light max-w-3xl">
               Independent practices shouldn't have to sacrifice administrative sanity for clinical excellence. We provide the <span className="font-bold text-white tracking-widest uppercase text-sm">Assess. Fix. Govern.</span> framework to secure your data and your future.
             </p>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="border border-white/5 bg-[#16274a]/80 backdrop-blur-sm p-8 rounded-sm hover:bg-[#1f3660]/90 transition-all duration-300 group shadow-xl">
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-clinical-gold mb-3 block">Priority Campaign 01</span>
-                <h3 className="text-2xl font-bold text-white mb-3 tracking-tighter">2026 Annual HIPAA Hub</h3>
-                <p className="text-sm text-clinical-slate mb-8 leading-relaxed font-medium">Mandatory Training ($599 Base) & NPP Updates due Feb 16.</p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="border border-white/5 bg-[#16274a]/80 backdrop-blur-sm p-6 rounded-sm hover:bg-[#1f3660]/90 transition-all duration-300 group shadow-xl">
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-clinical-gold mb-2 block">Priority Campaign 01</span>
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-2 tracking-tighter">2026 Annual HIPAA Hub</h3>
+                <p className="text-sm text-slate-300 mb-6 leading-relaxed font-medium">Mandatory Training ($599 Base) & NPP Updates due Feb 16.</p>
                 <Link to="/hipaa-hub" className="text-[11px] font-bold text-white uppercase tracking-[0.2em] flex items-center group-hover:text-clinical-gold transition-colors">
                   ENTER HUB <i className="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform text-clinical-gold"></i>
                 </Link>
               </div>
 
-              <div className="border border-white/5 bg-[#16274a]/80 backdrop-blur-sm p-8 rounded-sm hover:bg-[#1f3660]/90 transition-all duration-300 group shadow-xl">
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-clinical-gold mb-3 block">Priority Campaign 02</span>
-                <h3 className="text-2xl font-bold text-white mb-3 tracking-tighter">M365 PHI Leak Audit</h3>
-                <p className="text-sm text-clinical-slate mb-8 leading-relaxed font-medium">Secure your cloud infrastructure against unauthorized disclosure.</p>
+              <div className="border border-white/5 bg-[#16274a]/80 backdrop-blur-sm p-6 rounded-sm hover:bg-[#1f3660]/90 transition-all duration-300 group shadow-xl">
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-clinical-gold mb-2 block">Priority Campaign 02</span>
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-2 tracking-tighter">M365 PHI Leak Audit</h3>
+                <p className="text-sm text-slate-300 mb-6 leading-relaxed font-medium">Secure your cloud infrastructure against unauthorized disclosure.</p>
                 <Link to="/m365-audit" className="text-[11px] font-bold text-white uppercase tracking-[0.2em] flex items-center group-hover:text-clinical-gold transition-colors">
                   LEARN MORE... <i className="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform text-clinical-gold"></i>
                 </Link>
