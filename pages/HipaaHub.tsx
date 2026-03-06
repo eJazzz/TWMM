@@ -82,7 +82,7 @@ const HipaaHub = () => {
                 <div className="container mx-auto px-6 relative z-10 grid lg:grid-cols-12 gap-12 items-center">
                     <div className="lg:col-span-7">
                         <div className={`inline-block border px-4 py-1.5 text-xs font-bold uppercase tracking-widest mb-6 ${darkMode ? 'bg-red-600/20 text-red-400 border-red-500/30' : 'bg-red-600/20 text-red-200 border-red-500/30'}`}>2026 MANDATE STATUS: ACTIVE</div>
-                        <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6 leading-tight">2026 Annual HIPAA Training is Now Due.</h1>
+                        <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6 leading-tight">2026 Annual HIPAA Training Now Due.</h1>
                         <p className="text-lg md:text-xl text-clinical-white mb-10 max-w-xl font-medium leading-relaxed">Standardized, online training for all clinicians and support staff. Notice of Privacy Practice (NPP) required to be implemented by February 16, 2026.</p>
 
                         {/* The Offer Card */}

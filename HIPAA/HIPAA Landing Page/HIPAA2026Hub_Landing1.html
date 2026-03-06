@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIPAA 2026 Annual Training Hub | Transworld Medical Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'clinical-deep': '#0A192F',
+                        'clinical-blue': '#112240',
+                        'clinical-gold': '#C5A059',
+                        'clinical-gold-dark': '#8E6F3E',
+                        'clinical-slate': '#8892B0',
+                        'clinical-slate-dark': '#4A5568',
+                        'clinical-light': '#F8FAFC',
+                    },
+                    fontFamily: {
+                        serif: ['Libre+Baskerville', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-gradient { background: radial-gradient(circle at top right, #112240 0%, #0A192F 100%); }
+        .urgent-pulse { animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.05); opacity: 0.8; } 100% { transform: scale(1); opacity: 1; } }
+        .strikethrough { position: relative; display: inline-block; }
+        .strikethrough::after { content: ''; position: absolute; left: 0; top: 50%; width: 100%; height: 2px; background: #ef4444; transform: rotate(-10deg); }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); }
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+    </style>
+</head>
+<body class="bg-clinical-light dark:bg-clinical-deep font-sans text-clinical-deep dark:text-white overflow-x-hidden">
+
+    <!-- Urgency Banner -->
+    <div class="bg-red-700 text-white py-3 px-4 text-center text-xs md:text-sm font-bold uppercase tracking-[0.2em] sticky top-0 z-50 shadow-md">
+        <i class="fas fa-exclamation-triangle mr-2"></i> 2026 Training Now Due: Compliance Enforcement Active
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white dark:bg-clinical-deep/95 backdrop-blur-md border-b border-clinical-deep/10 dark:border-white/5 py-4 px-6 md:px-12 flex justify-between items-center z-40 relative">
+        <div class="flex items-center">
+            <img src="TWMMMinLogo_Trnsprnt_200 x 200px.png" alt="TWMM Logo" class="h-12 w-auto mr-4 dark:brightness-100 brightness-0" onerror="this.src='https://via.placeholder.com/40x40?text=T'">
+            <div class="leading-none">
+                <span class="text-clinical-deep dark:text-white font-bold tracking-tighter text-base md:text-lg uppercase">Transworld <span class="text-clinical-gold">Medical</span></span>
+                <span class="text-clinical-slate-dark dark:text-clinical-slate text-[10px] md:text-xs block tracking-[0.3em] uppercase mt-1">Management</span>
+            </div>
+        </div>
+        
+        <div class="flex items-center space-x-4 md:space-x-10">
+            <div class="hidden lg:flex space-x-8 text-[11px] font-bold uppercase tracking-widest text-clinical-slate-dark dark:text-clinical-slate">
+                <a href="#training" class="hover:text-clinical-gold transition-colors">Annual Training</a>
+                <a href="#governance" class="hover:text-clinical-gold transition-colors">SRA & Governance</a>
+                <a href="#contact" class="bg-clinical-gold text-clinical-deep px-6 py-2.5 rounded-sm hover:bg-clinical-blue hover:text-white transition-all text-center">Enroll Now</a>
+            </div>
+
+            <button id="themeToggle" class="w-10 h-10 rounded-full flex items-center justify-center border border-clinical-deep/10 dark:border-white/10 hover:bg-clinical-light dark:hover:bg-white/5 transition-all">
+                <i id="themeIcon" class="fas fa-moon text-clinical-deep dark:text-clinical-gold"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-clinical-blue dark:hero-gradient text-white py-12 md:py-16 relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10 grid lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7">
+                <div class="inline-block bg-red-600/20 text-red-200 dark:text-red-400 border border-red-500/30 px-4 py-1.5 text-xs font-bold uppercase tracking-widest mb-6">2026 MANDATE STATUS: ACTIVE</div>
+                <h1 class="text-4xl md:text-6xl font-serif font-bold mb-6 leading-tight">2026 Annual HIPAA Training Now Due.</h1>
+                <p class="text-lg md:text-xl text-clinical-slate dark:text-clinical-slate mb-10 max-w-xl font-medium leading-relaxed">Standardized, online training for all clinicians and support staff. Notice of Privacy Practice (NPP) required to be implemented by February 16, 2026.</p>
+                
+                <!-- The Offer Card -->
+                <div class="bg-white/10 dark:bg-white/5 border border-white/10 p-8 rounded-sm mb-10 inline-block shadow-2xl relative overflow-hidden backdrop-blur-sm">
+                    <div class="absolute top-0 right-0 bg-green-600 text-white px-5 py-1.5 text-[10px] font-bold uppercase tracking-widest">Early Bird Pricing</div>
+                    <div class="flex items-baseline space-x-4 mb-4">
+                        <span class="text-clinical-gold text-6xl font-bold tracking-tighter">$599</span>
+                        <span class="strikethrough text-clinical-slate text-2xl font-bold">$699</span>
+                    </div>
+                    <p class="text-sm font-bold uppercase tracking-widest text-clinical-gold mb-6 italic">Base HIPAA Compliance Package</p>
+                    <ul class="text-xs md:text-sm space-y-4 text-white dark:text-clinical-slate font-semibold uppercase tracking-wider">
+                        <li><i class="fas fa-users text-green-400 mr-3"></i> Includes 10 Seats ($25 for each additional)</li>
+                        <li><i class="fas fa-file-signature text-green-400 mr-3"></i> Free NPP Template (Updated for Feb 16, 2026)</li>
+                        <li><i class="fas fa-history text-green-400 mr-3"></i> 6-Year Records Retention Included</li>
+                    </ul>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contact" class="bg-clinical-gold text-clinical-deep px-10 py-5 font-bold uppercase tracking-widest text-xs md:text-sm hover:bg-white transition-all text-center shadow-lg urgent-pulse">Sign Up & Start Immediately</a>
+                    <a href="#governance" class="border border-white/20 hover:bg-white/5 px-10 py-5 font-bold uppercase tracking-widest text-xs md:text-sm transition-all text-center">Inquire SRA & BAA</a>
+                </div>
+            </div>
+
+            <!-- Countdown Sidebar -->
+            <div class="lg:col-span-5">
+                <div class="bg-white dark:bg-white p-10 rounded-sm shadow-2xl text-clinical-deep border-b-8 border-clinical-gold relative">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-red-700 text-white px-5 py-1.5 text-xs font-bold uppercase tracking-widest shadow-md">Critical Enforcement</div>
+                    <h3 class="font-serif font-bold text-3xl mb-2 text-center text-clinical-deep">NPP Redistribution</h3>
+                    <p class="text-xs text-center text-clinical-slate-dark uppercase tracking-[0.2em] mb-8 font-bold">Deadline: February 16, 2026</p>
+                    
+                    <div id="hipaaCountdownContainer" class="flex justify-around mb-10 border-y border-clinical-light py-8">
+                        <div class="text-center"><span id="daysBox" class="block text-4xl md:text-5xl font-bold text-clinical-deep">00</span><span class="text-[11px] uppercase font-bold text-clinical-slate-dark mt-2 block">Days</span></div>
+                        <div class="text-center font-bold text-4xl opacity-20 text-clinical-deep">:</div>
+                        <div class="text-center"><span id="hoursBox" class="block text-4xl md:text-5xl font-bold text-clinical-deep">00</span><span class="text-[11px] uppercase font-bold text-clinical-slate-dark mt-2 block">Hrs</span></div>
+                        <div class="text-center font-bold text-4xl opacity-20 text-clinical-deep">:</div>
+                        <div class="text-center"><span id="minutesBox" class="block text-4xl md:text-5xl font-bold text-clinical-deep">00</span><span class="text-[11px] uppercase font-bold text-clinical-slate-dark mt-2 block">Min</span></div>
+                    </div>
+                    
+                    <div class="bg-clinical-light p-5 rounded-sm">
+                        <h4 class="text-xs font-bold uppercase mb-3 text-clinical-deep tracking-wider">Required Action:</h4>
+                        <p class="text-sm text-clinical-slate-dark leading-relaxed font-medium">Reproductive health privacy rules require an NPP redistribution to all active patients. Failure is an automatic audit trigger for OCR.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Training Bytes Section -->
+    <section id="training" class="py-24 bg-white dark:bg-clinical-deep">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h4 class="text-clinical-gold-dark dark:text-clinical-gold font-bold uppercase tracking-[0.4em] mb-4 text-xs">Administrative Efficiency</h4>
+                <h3 class="text-4xl font-serif font-bold text-clinical-deep dark:text-white">Enterprise-Grade Staff Training</h3>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="p-10 bg-clinical-light dark:bg-clinical-blue border-t-2 border-clinical-gold shadow-sm">
+                    <i class="fas fa-desktop text-clinical-gold-dark dark:text-clinical-gold text-3xl mb-8"></i>
+                    <h5 class="font-bold text-sm uppercase tracking-widest mb-4 dark:text-white">Online & Self-Paced</h5>
+                    <p class="text-sm text-clinical-slate-dark dark:text-clinical-slate leading-relaxed font-medium">Focused knowledge transfer followed by a rigorous quiz and instant certificate download.</p>
+                </div>
+                <div class="p-10 bg-clinical-light dark:bg-clinical-blue border-t-2 border-clinical-gold shadow-sm">
+                    <i class="fas fa-database text-clinical-gold-dark dark:text-clinical-gold text-3xl mb-8"></i>
+                    <h5 class="font-bold text-sm uppercase tracking-widest mb-4 dark:text-white">6-Year Retention</h5>
+                    <p class="text-sm text-clinical-slate-dark dark:text-clinical-slate leading-relaxed font-medium">We retain all training records online for the legally mandated 6-year window for you.</p>
+                </div>
+                <div class="p-10 bg-clinical-light dark:bg-clinical-blue border-t-2 border-clinical-gold shadow-sm">
+                    <i class="fas fa-columns text-clinical-gold-dark dark:text-clinical-gold text-3xl mb-8"></i>
+                    <h5 class="font-bold text-sm uppercase tracking-widest mb-4 dark:text-white">Admin Dashboard</h5>
+                    <p class="text-sm text-clinical-slate-dark dark:text-clinical-slate leading-relaxed font-medium">Centralized portal to add trainees, monitor progress, and manage compliance proof.</p>
+                </div>
+                <div class="p-10 bg-clinical-light dark:bg-clinical-blue border-t-2 border-clinical-gold shadow-sm">
+                    <i class="fas fa-sync text-clinical-gold-dark dark:text-clinical-gold text-3xl mb-8"></i>
+                    <h5 class="font-bold text-sm uppercase tracking-widest mb-4 dark:text-white">Future Updates</h5>
+                    <p class="text-sm text-clinical-slate-dark dark:text-clinical-slate leading-relaxed font-medium">Free training updates for major regulatory changes and reduced new-hire training pricing thru year-end.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Governance & Workflows -->
+    <section id="governance" class="py-24 bg-clinical-blue text-white">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div>
+                    <h4 class="text-clinical-gold font-bold uppercase tracking-[0.3em] text-sm mb-4">Risk Mitigation Reports</h4>
+                    <h3 class="text-4xl font-serif font-bold mb-8">SRA & BAA Optimization.</h3>
+                    <p class="text-lg text-clinical-slate mb-12 leading-relaxed">Move beyond standard training into deep-dive clinical governance. Special pricing available for comprehensive risk analysis and vendor oversight.</p>
+                    
+                    <div class="grid sm:grid-cols-2 gap-8">
+                        <div class="bg-white/5 p-8 border border-white/10 hover:bg-white/10 transition-colors text-center sm:text-left">
+                            <h5 class="font-bold text-xs text-clinical-gold uppercase tracking-widest mb-4">Custom BAA Templates</h5>
+                            <p class="text-sm text-clinical-slate">Liability-focused vendor contracts updated for 2026 regulations.</p>
+                        </div>
+                        <div class="bg-white/5 p-8 border border-white/10 hover:bg-white/10 transition-colors text-center sm:text-left">
+                            <h5 class="font-bold text-xs text-clinical-gold uppercase tracking-widest mb-4">Security Risk Analysis</h5>
+                            <p class="text-sm text-clinical-slate">Mandatory annual SRA with full mitigation roadmap for clinicians.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Workflows -->
+                <div class="bg-white dark:bg-white text-clinical-deep p-10 md:p-14 shadow-2xl relative">
+                    <div class="absolute top-0 right-0 bg-clinical-gold text-clinical-deep px-5 py-1.5 text-[10px] font-bold uppercase tracking-wider">Custom Policies</div>
+                    <h4 class="font-serif font-bold text-3xl mb-10 text-clinical-deep">Clinical Workflow Design</h4>
+                    <div class="space-y-10">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-sm bg-clinical-light flex items-center justify-center text-clinical-gold mr-5 shrink-0 font-bold shadow-inner">A</div>
+                            <div>
+                                <h5 class="font-bold text-sm uppercase tracking-widest mb-2 text-clinical-deep">Front Desk Manuals</h5>
+                                <p class="text-sm text-clinical-slate-dark font-medium leading-relaxed">Operational forms and standardized intake procedures.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-sm bg-clinical-light flex items-center justify-center text-clinical-gold mr-5 shrink-0 font-bold shadow-inner">B</div>
+                            <div>
+                                <h5 class="font-bold text-sm uppercase tracking-widest mb-2 text-clinical-deep">Onboarding Workflows</h5>
+                                <p class="text-sm text-clinical-slate-dark font-medium leading-relaxed">Seamless, compliant protocols for all new clinical hires.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-sm bg-clinical-light flex items-center justify-center text-clinical-gold mr-5 shrink-0 font-bold shadow-inner">C</div>
+                            <div>
+                                <h5 class="font-bold text-sm uppercase tracking-widest mb-2 text-clinical-deep">Offboarding Protocol</h5>
+                                <p class="text-sm text-clinical-slate-dark font-medium leading-relaxed">Secure termination forms and system access revocation flows.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA & Form -->
+    <section id="contact" class="py-24 bg-clinical-light dark:bg-clinical-deep">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="text-center mb-16">
+                <img src="TWMM_Logo_103.jpg" alt="TWMM Logo" class="h-14 w-auto mx-auto mb-8 dark:brightness-100 brightness-0 opacity-90" onerror="this.style.display='none'">
+                <h3 class="text-4xl font-serif font-bold mb-4 dark:text-white text-clinical-deep">Initialize Practice Enrollment</h3>
+                <p class="text-lg text-clinical-slate-dark dark:text-clinical-slate max-w-xl mx-auto italic font-bold tracking-tight">Locked-in pricing: $599 Base Package + $25 per additional seat.</p>
+            </div>
+
+            <div class="bg-white dark:bg-clinical-blue shadow-2xl p-8 md:p-16 border-t-8 border-clinical-deep dark:border-clinical-gold">
+                <form id="hipaaCampaignLeadForm" action="https://formspree.io/f/mbdjbkvv" method="POST" class="grid md:grid-cols-2 gap-10">
+                    <div class="space-y-3">
+                        <label class="text-[11px] font-bold uppercase tracking-[0.2em] text-clinical-slate-dark dark:text-clinical-slate">Practitioner/Admin Name</label>
+                        <input type="text" name="name" class="w-full p-5 bg-clinical-light dark:bg-clinical-deep border-none outline-none text-base dark:text-white focus:ring-1 focus:ring-clinical-gold placeholder-slate-300 dark:placeholder-slate-600" placeholder="Jane Smith, MD" required>
+                    </div>
+                    <div class="space-y-3">
+                        <label class="text-[11px] font-bold uppercase tracking-[0.2em] text-clinical-slate-dark dark:text-clinical-slate">Clinical Practice Name</label>
+                        <input type="text" name="practice" class="w-full p-5 bg-clinical-light dark:bg-clinical-deep border-none outline-none text-base dark:text-white focus:ring-1 focus:ring-clinical-gold placeholder-slate-300 dark:placeholder-slate-600" placeholder="Main Street Medical" required>
+                    </div>
+                    <div class="space-y-3 md:col-span-2">
+                        <label class="text-[11px] font-bold uppercase tracking-[0.2em] text-clinical-slate-dark dark:text-clinical-slate">Professional Email</label>
+                        <input type="email" name="email" class="w-full p-5 bg-clinical-light dark:bg-clinical-deep border-none outline-none text-base dark:text-white focus:ring-1 focus:ring-clinical-gold placeholder-slate-300 dark:placeholder-slate-600" placeholder="admin@practice.com" required>
+                    </div>
+                    <div class="space-y-3 md:col-span-2">
+                        <label class="text-[11px] font-bold uppercase tracking-[0.2em] text-clinical-slate-dark dark:text-clinical-slate">Enrollment Tier</label>
+                        <select name="package" class="w-full p-5 bg-clinical-light dark:bg-clinical-deep border-none outline-none text-base dark:text-white focus:ring-1 focus:ring-clinical-gold cursor-pointer">
+                            <option value="Base_599">$599 Base HIPAA Package (10 Seats + NPP Template)</option>
+                            <option value="SRA_Governance">SRA & Risk Mitigation Report Inquiry</option>
+                            <option value="Workflow_Custom">Custom Workflow & Policy Design Suite</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2 pt-8 text-center">
+                        <button type="submit" class="w-full bg-clinical-deep dark:bg-clinical-gold text-white dark:text-clinical-deep py-6 font-bold uppercase tracking-[0.3em] text-sm md:text-base hover:bg-clinical-blue dark:hover:bg-white dark:hover:text-clinical-deep transition-all shadow-xl urgent-pulse">Purchase & Initialize Dashboard</button>
+                        <div class="mt-10 space-y-4">
+                            <p class="text-[11px] text-clinical-slate-dark dark:text-clinical-slate uppercase leading-relaxed tracking-widest font-bold">
+                                Official Support: <a href="mailto:admin@twmm.transworldsmm.com" class="text-clinical-gold-dark dark:text-clinical-gold font-black underline">admin@twmm.transworldsmm.com</a>
+                            </p>
+                            <p class="text-[10px] text-clinical-slate dark:text-clinical-slate uppercase tracking-widest">No PHI should be submitted via this intake form.</p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-clinical-deep py-20 text-white border-t border-white/5">
+        <div class="container mx-auto px-6 grid md:grid-cols-3 gap-12 items-start">
+            <div class="text-center md:text-left">
+                <img src="TWMMMinLogo_Trnsprnt_200 x 200px.png" alt="Logo" class="h-12 w-auto mb-6 mx-auto md:mx-0">
+                <p class="text-xs uppercase tracking-[0.3em] text-clinical-slate mb-3">Transworld Medical Management, LLC.</p>
+                <p class="text-xs uppercase tracking-widest text-clinical-slate">Palm Harbor, Florida | Tampa Bay Region</p>
+            </div>
+            
+            <div class="text-center md:text-left space-y-4">
+                <h5 class="text-clinical-gold font-bold uppercase tracking-widest text-xs">Clinical Resources</h5>
+                <ul class="text-clinical-slate text-xs space-y-2 uppercase tracking-widest">
+                    <li><a href="#training" class="hover:text-white transition-colors">Annual Training</a></li>
+                    <li><a href="#governance" class="hover:text-white transition-colors">Risk Mitigation</a></li>
+                    <li><a href="#contact" class="hover:text-white transition-colors">Support Hub</a></li>
+                </ul>
+            </div>
+
+            <div class="text-center md:text-left space-y-4">
+                <h5 class="text-clinical-gold font-bold uppercase tracking-widest text-xs">Legal Governance</h5>
+                <ul class="text-clinical-slate text-xs space-y-2 uppercase tracking-widest">
+                    <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                    <li class="pt-4">
+                        <div class="flex space-x-4 justify-center md:justify-start">
+                            <a href="#" class="w-10 h-10 glass rounded-sm flex items-center justify-center hover:text-clinical-gold transition-all"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="w-10 h-10 glass rounded-sm flex items-center justify-center hover:text-clinical-gold transition-all"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 mt-16 pt-10 border-t border-white/5 text-center">
+            <p class="text-[11px] uppercase tracking-[0.4em] text-clinical-slate/50">© 2026 Transworld Medical Management. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            const themeToggleBtn = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            const html = document.documentElement;
+
+            themeToggleBtn.addEventListener('click', () => {
+                if (html.classList.contains('dark')) {
+                    html.classList.remove('dark');
+                    themeIcon.classList.replace('fa-sun', 'fa-moon');
+                } else {
+                    html.classList.add('dark');
+                    themeIcon.classList.replace('fa-moon', 'fa-sun');
+                }
+            });
+
+            if (html.classList.contains('dark')) {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            }
+
+            const campaignEnforcementDate = new Date("Feb 16, 2026 00:00:00").getTime();
+            const campaignIntervalId = setInterval(function() {
+                const now = new Date().getTime();
+                const difference = campaignEnforcementDate - now;
+                
+                const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+
+                const dBox = document.getElementById("daysBox");
+                const hBox = document.getElementById("hoursBox");
+                const mBox = document.getElementById("minutesBox");
+
+                if (dBox) dBox.innerText = d < 10 ? '0' + d : d;
+                if (hBox) hBox.innerText = h < 10 ? '0' + h : h;
+                if (mBox) mBox.innerText = m < 10 ? '0' + m : m;
+
+                if (difference < 0) {
+                    clearInterval(campaignIntervalId);
+                    const container = document.getElementById("hipaaCountdownContainer");
+                    if (container) container.innerHTML = "<span class='text-red-700 font-bold tracking-widest text-2xl'>DEADLINE EXPIRED</span>";
+                }
+            }, 1000);
+
+            const leadForm = document.getElementById('hipaaCampaignLeadForm');
+            if (leadForm) {
+                leadForm.addEventListener('submit', function(e) {
+                    const submitBtn = e.target.querySelector('button');
+                    if (submitBtn) {
+                        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-3"></i> PROCESSING ENROLLMENT...';
+                        submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+                    }
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

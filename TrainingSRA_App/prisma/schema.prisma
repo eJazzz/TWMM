@@ -1,0 +1,82 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Clinic Metadata (Organization)
+model Clinic {
+  id              String   @id @default(cuid())
+  name            String
+  address         String?
+  city            String?
+  state           String?  // FL logic triggers if "FL" or "Florida"
+  zip             String?
+  
+  privacyOfficer  String?
+  securityOfficer String?
+  providerCount   Int      @default(1)
+  
+  baaAccepted     Boolean  @default(false)
+  baaAcceptedAt   DateTime?
+  baaSignedBy     String?
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  users           User[]
+  assessments     Assessment[]
+}
+
+// User (Admin/Staff)
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  password      String    // Hashed
+  role          String    @default("ADMIN") // ADMIN, USER
+  
+  clinicId      String
+  clinic        Clinic    @relation(fields: [clinicId], references: [id])
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+// The SRA Assessment Session
+model Assessment {
+  id            String    @id @default(cuid())
+  clinicId      String
+  clinic        Clinic    @relation(fields: [clinicId], references: [id])
+  
+  status        String    @default("IN_PROGRESS") // IN_PROGRESS, COMPLETED
+  completionDate DateTime?
+  
+  // JSON blob for flexible responses or relational? 
+  // Relational allows easier query/reporting per question.
+  responses     Response[]
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Response {
+  id            String    @id @default(cuid())
+  assessmentId  String
+  assessment    Assessment @relation(fields: [assessmentId], references: [id], onDelete: Cascade)
+  
+  section       String    // ADMIN, TECHNICAL, PHYSICAL
+  questionId    String    // Unique ID for the question (e.g., "ADMIN_001")
+  answer        String    // YES, NO, N/A
+  notes         String?   // User comments
+  
+  flag          String?   // CRITICAL, HIGH, MEDIUM, LOW (Calculated risk)
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@unique([assessmentId, questionId])
+}

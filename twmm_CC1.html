@@ -1,0 +1,1719 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Transworld Medical Management, LLC | Clinic Ops, IT, Compliance, RCM, VBC/MIPS</title>
+  <meta name="description" content="Transworld Medical Management, LLC helps clinics stabilize operations, reduce compliance risk, optimize EHR/PM workflows, improve revenue cycle performance, and operationalize VBC/MIPS reporting across Tampa Bay, FL and surrounding counties." />
+
+  <style>
+    :root{
+      /* Light, vivid, modern */
+      --bg: #f6f8ff;
+      --surface: #ffffff;
+      --surface2: #f2f6ff;
+
+      --text: #0f172a;
+      --muted: #475569;
+      --muted2:#64748b;
+
+      --border: rgba(15, 23, 42, 0.12);
+
+      /* Vivid accents */
+      --brand: #2563eb;
+      --brand2:#7c3aed;
+      --brand3:#06b6d4;
+
+      --ok: #16a34a;
+      --warn:#f59e0b;
+      --risk:#ef4444;
+
+      --shadow: 0 10px 24px rgba(15,23,42,0.08);
+      --shadow2: 0 18px 44px rgba(15,23,42,0.10);
+      --radius: 18px;
+      --radius2: 14px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{
+      margin:0; padding:0;
+      background:
+        radial-gradient(1200px 700px at 15% 0%, rgba(37,99,235,0.18), transparent 60%),
+        radial-gradient(900px 600px at 90% 10%, rgba(124,58,237,0.16), transparent 60%),
+        radial-gradient(800px 500px at 70% 90%, rgba(6,182,212,0.12), transparent 55%),
+        linear-gradient(180deg, var(--bg), #ffffff);
+      color:var(--text);
+      font: 16px/1.55 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      scroll-behavior:smooth;
+    }
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width:1120px; margin:0 auto; padding:0 20px; }
+
+    /* Header */
+    header{
+      position: sticky; top:0; z-index:50;
+      background: rgba(255,255,255,0.82);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 0; }
+    .brand{ display:flex; align-items:center; gap:10px; font-weight:900; letter-spacing:0.2px; }
+    .logo{
+      width:34px; height:34px; border-radius:12px;
+      background: conic-gradient(from 180deg, var(--brand), var(--brand2), var(--brand3), var(--brand));
+      box-shadow: 0 10px 22px rgba(37,99,235,0.18);
+      flex:0 0 auto;
+    }
+    .brand small{ display:block; color:var(--muted); font-weight:800; margin-top:2px; }
+    .navlinks{ display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; }
+    .navlinks a{
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 14px;
+      padding: 8px 10px;
+      border-radius: 12px;
+    }
+    .navlinks a:hover{
+      background: rgba(37,99,235,0.08);
+      color: var(--text);
+    }
+
+    /* Buttons */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:12px 14px;
+      border-radius:14px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      color:#fff;
+      font-weight:900;
+      border:0;
+      cursor:pointer;
+      box-shadow: 0 12px 26px rgba(37,99,235,0.18);
+      transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 16px 34px rgba(37,99,235,0.22); }
+    .btn:active{ transform: translateY(0); opacity:0.95; }
+    .btn.secondary{
+      background:#fff;
+      color: var(--text);
+      border: 1px solid var(--border);
+      box-shadow: none;
+      font-weight:900;
+    }
+    .btn.secondary:hover{ background: rgba(37,99,235,0.06); }
+
+    /* Hero */
+    .hero{ padding: 54px 0 24px; }
+    .hero-grid{ display:grid; grid-template-columns: 1.2fr 0.8fr; gap:16px; align-items:stretch; }
+    @media (max-width: 920px){ .hero-grid{ grid-template-columns:1fr; } }
+
+    .panel{
+      background: rgba(255,255,255,0.90);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow2);
+      padding:22px;
+    }
+    .kicker{
+      display:inline-flex; align-items:center; gap:8px;
+      color: var(--muted);
+      font-weight: 900;
+      font-size: 13px;
+      background: rgba(37,99,235,0.08);
+      border: 1px solid rgba(37,99,235,0.18);
+      padding: 7px 11px;
+      border-radius: 999px;
+    }
+    h1{
+      margin: 12px 0 10px;
+      font-size: 40px;
+      line-height: 1.08;
+      letter-spacing: -0.4px;
+    }
+    @media (max-width: 520px){ h1{ font-size: 32px; } }
+    .lead{ color: var(--muted); font-size: 16px; margin: 0 0 14px; }
+    .hero-cta{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+    .badges{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+    .badge{
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.85);
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .mini{ display:grid; gap:10px; }
+    .stat{
+      padding:14px;
+      border-radius: 16px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,0.92);
+      box-shadow: var(--shadow);
+    }
+    .stat b{ display:block; font-size:14px; }
+    .stat span{ display:block; color: var(--muted); font-size:13px; margin-top:3px; }
+
+    /* Section bands: clearly separated */
+    section{ padding: 44px 0; }
+    .band{
+      border-top: 1px solid rgba(15,23,42,0.06);
+      border-bottom: 1px solid rgba(15,23,42,0.06);
+      background: linear-gradient(180deg, rgba(37,99,235,0.06), rgba(124,58,237,0.04));
+    }
+    .band.alt{
+      background: linear-gradient(180deg, rgba(6,182,212,0.06), rgba(37,99,235,0.04));
+    }
+
+    .section-head{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:10px; flex-wrap:wrap;
+      margin-bottom: 16px;
+      padding: 14px 16px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.80);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    h2{ margin:0; font-size: 24px; letter-spacing:-0.2px; }
+    .subtitle{ margin:0; color: var(--muted); font-size: 14px; }
+
+    /* Tabs */
+    .tabs{
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.88);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .tablist{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      padding: 12px 12px 10px;
+      border-bottom: 1px solid rgba(15,23,42,0.08);
+      background: rgba(255,255,255,0.92);
+    }
+    .tab{
+      appearance:none;
+      border:1px solid rgba(15,23,42,0.10);
+      background: rgba(15,23,42,0.03);
+      color: var(--muted);
+      font-weight: 900;
+      font-size: 13px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      cursor:pointer;
+      transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
+    }
+    .tab:hover{
+      background: rgba(37,99,235,0.08);
+      color: var(--text);
+      border-color: rgba(37,99,235,0.22);
+    }
+    .tab[aria-selected="true"]{
+      background: linear-gradient(135deg, rgba(37,99,235,0.15), rgba(124,58,237,0.12));
+      color: var(--text);
+      border-color: rgba(37,99,235,0.28);
+      box-shadow: 0 8px 18px rgba(37,99,235,0.10);
+    }
+    .tabpanel{ padding: 16px; display:none; }
+    .tabpanel.active{ display:block; }
+
+    /* Content blocks */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+    .card{
+      grid-column: span 12;
+      background: rgba(255,255,255,0.94);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    .cols{ display:grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 780px){ .cols{ grid-template-columns:1fr; } }
+
+    h3{ margin:0 0 8px; font-size: 18px; letter-spacing:-0.15px; }
+    p{ margin:0; }
+    ul{ margin:10px 0 0; padding-left: 18px; }
+    li{ margin: 6px 0; color: var(--muted); }
+
+    .meta{ display:flex; gap:10px; flex-wrap:wrap; margin: 10px 0 12px; }
+    .pill{
+      font-size: 12px;
+      font-weight: 950;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(15,23,42,0.12);
+      background: rgba(15,23,42,0.03);
+      color: var(--muted);
+    }
+    .pill.ok{ background: rgba(22,163,74,0.12); border-color: rgba(22,163,74,0.18); color: #0a3b1a; }
+    .pill.warn{ background: rgba(245,158,11,0.14); border-color: rgba(245,158,11,0.22); color: #3a2506; }
+    .pill.risk{ background: rgba(239,68,68,0.12); border-color: rgba(239,68,68,0.18); color: #3a0b0b; }
+
+    .callout{
+      margin-top: 14px;
+      border: 1px solid rgba(37,99,235,0.18);
+      background: rgba(37,99,235,0.06);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+    }
+    .callout.warn{
+      border-color: rgba(245,158,11,0.30);
+      background: rgba(245,158,11,0.12);
+    }
+    .small{ font-size: 13px; color: var(--muted2); }
+    .hr{ height:1px; background: rgba(15,23,42,0.10); margin: 16px 0; }
+
+    /* Form styling */
+    form{ margin-top: 10px; }
+    .form-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    @media (max-width: 820px){ .form-grid{ grid-template-columns: 1fr; } }
+    label{
+      display:block;
+      font-weight: 900;
+      font-size: 13px;
+      color: var(--muted);
+      margin: 10px 0 6px;
+    }
+    input, select, textarea{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(15,23,42,0.14);
+      background: rgba(255,255,255,0.96);
+      color: var(--text);
+      outline:none;
+      box-shadow: 0 1px 0 rgba(15,23,42,0.03);
+    }
+    input:focus, select:focus, textarea:focus{
+      border-color: rgba(37,99,235,0.45);
+      box-shadow: 0 0 0 4px rgba(37,99,235,0.12);
+    }
+    textarea{ min-height: 110px; resize: vertical; }
+    .form-actions{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 14px; }
+    .fineprint{ font-size:12px; color: var(--muted2); margin-top: 10px; }
+    .status{
+      display:none;
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(22,163,74,0.22);
+      background: rgba(22,163,74,0.10);
+      color:#0a3b1a;
+      font-weight: 900;
+    }
+    .status.error{
+      border-color: rgba(239,68,68,0.22);
+      background: rgba(239,68,68,0.10);
+      color:#3a0b0b;
+    }
+
+    /* Footer */
+    footer{
+      padding: 30px 0 60px;
+      border-top: 1px solid rgba(15,23,42,0.10);
+      color: var(--muted);
+      background: rgba(255,255,255,0.62);
+    }
+    .mutedlink{
+      color: var(--brand);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 950;
+    }
+
+    /* Public/private helpers */
+    .private{}
+    .public-note{ display:none; }
+
+    /* Scroll-to-top */
+    .toTop{
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 46px;
+      height: 46px;
+      border-radius: 999px;
+      border: 1px solid rgba(15,23,42,0.14);
+      background: rgba(255,255,255,0.92);
+      box-shadow: var(--shadow2);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 100;
+      transition: transform 120ms ease, opacity 120ms ease;
+    }
+    .toTop:hover{ transform: translateY(-2px); }
+    .toTop svg{ width:20px; height:20px; fill: var(--text); }
+    .toTop.show{ display:flex; }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div>Transworld Medical Management, LLC</div>
+          <small>Stabilize Operations. Protect Compliance. Improve Performance.</small>
+        </div>
+      </div>
+      <div class="navlinks" aria-label="Primary navigation">
+        <a href="#overview">Overview</a>
+        <a href="#process">Process</a>
+        <a href="#services">Services</a>
+        <a href="#bundles">Bundles</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- OVERVIEW -->
+  <section id="overview" class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="panel">
+          <div class="kicker">Clinic Operations • IT & Security • RCM • VBC/MIPS • Reporting</div>
+          <h1>Assess. Fix. Govern.<br/>Make your clinic stable and audit-ready.</h1>
+          <p class="lead">
+            We help small and mid-sized outpatient practices identify operational, compliance, technology, and revenue-cycle issues,
+            implement targeted fixes, and provide ongoing oversight so problems don’t quietly grow into emergencies.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn" href="#contact">Request a Consultation</a>
+            <a class="btn secondary" href="#services">Browse Services</a>
+          </div>
+
+          <div class="badges">
+            <div class="badge">Based in Tampa Bay, FL</div>
+            <div class="badge">Serving Hillsborough • Pinellas • Pasco • Hernando • Sarasota • Manatee</div>
+          </div>
+
+          <div class="callout private">
+            <b>Private note (internal version)</b>
+            <div class="small">Open the page with <code>?mode=public</code> to hide blocks marked <b>private</b>.</div>
+          </div>
+        </div>
+
+        <div class="panel mini">
+          <div class="stat">
+            <b>What you get</b>
+            <span>Ranked findings, remediation roadmap, measurable KPIs, and documentation that survives audits.</span>
+          </div>
+          <div class="stat">
+            <b>How we engage</b>
+            <span>Fixed-scope assessments → implementation sprints → optional monthly/weekly oversight retainers.</span>
+          </div>
+          <div class="stat">
+            <b>Typical client</b>
+            <span>1–20 providers, owner-operated leadership, SOP gaps, EHR/PM pain, RCM leakage, VBC reporting gaps.</span>
+          </div>
+          <div class="stat">
+            <b>Public mode</b>
+            <span class="small">Append <code>?mode=public</code> to the URL to hide private content.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="band">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>Engagement Process</h2>
+          <p class="subtitle">Tabs instead of clutter. One step at a time.</p>
+        </div>
+      </div>
+
+      <div class="tabs" data-tabs>
+        <div class="tablist" role="tablist" aria-label="Engagement Process Tabs">
+          <button class="tab" role="tab" aria-selected="true" aria-controls="proc-discover" id="tab-proc-discover">1) Discover</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="proc-assess" id="tab-proc-assess">2) Assess</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="proc-remediate" id="tab-proc-remediate">3) Remediate</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="proc-govern" id="tab-proc-govern">4) Govern</button>
+        </div>
+
+        <div class="tabpanel active" role="tabpanel" id="proc-discover" aria-labelledby="tab-proc-discover">
+          <div class="card">
+            <h3>Discover</h3>
+            <div class="meta">
+              <span class="pill ok">Fast alignment</span>
+              <span class="pill">30–60 min intake</span>
+              <span class="pill">Scope + priorities</span>
+            </div>
+            <div class="cols">
+              <div>
+                <b>Outcome</b>
+                <ul>
+                  <li>Confirm goals, pain points, and what “success” looks like</li>
+                  <li>Pick the right starting service (Health Check vs Full Assessment vs targeted)</li>
+                  <li>Define timeline, access needs, and key contacts</li>
+                </ul>
+              </div>
+              <div>
+                <b>Inputs Required</b>
+                <ul>
+                  <li>Provider count, specialties, locations</li>
+                  <li>EHR/PM + clearinghouse names</li>
+                  <li>Top 3 pain points (ops, billing, IT, reporting, staffing)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tabpanel" role="tabpanel" id="proc-assess" aria-labelledby="tab-proc-assess">
+          <div class="card">
+            <h3>Assess</h3>
+            <div class="meta">
+              <span class="pill ok">Baseline</span>
+              <span class="pill">1–4 weeks</span>
+              <span class="pill">Risk + ROI</span>
+            </div>
+            <div class="cols">
+              <div>
+                <b>Outcome</b>
+                <ul>
+                  <li>Workflow observation + interviews + data review</li>
+                  <li>Findings ranked by urgency, risk, and business impact</li>
+                  <li>Action plan with owners, dates, and measurable KPIs</li>
+                </ul>
+              </div>
+              <div>
+                <b>Inputs Required</b>
+                <ul>
+                  <li>RCM snapshot (A/R aging, denials summary if available)</li>
+                  <li>Vendor list + BAAs/contracts (even if incomplete)</li>
+                  <li>Access overview (users/roles/MFA status if possible)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tabpanel" role="tabpanel" id="proc-remediate" aria-labelledby="tab-proc-remediate">
+          <div class="card">
+            <h3>Remediate</h3>
+            <div class="meta">
+              <span class="pill warn">Implementation</span>
+              <span class="pill">4–12 weeks</span>
+              <span class="pill">Time-boxed</span>
+            </div>
+            <div class="cols">
+              <div>
+                <b>Outcome</b>
+                <ul>
+                  <li>Fix high-impact issues first (risk and revenue leakage)</li>
+                  <li>Standardize SOPs and train staff</li>
+                  <li>Deliver dashboards/scorecards and governance cadence</li>
+                </ul>
+              </div>
+              <div>
+                <b>Inputs Required</b>
+                <ul>
+                  <li>Internal owners assigned per workstream</li>
+                  <li>Admin access or vendor-coordinated access</li>
+                  <li>Weekly check-ins (30–60 min)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tabpanel" role="tabpanel" id="proc-govern" aria-labelledby="tab-proc-govern">
+          <div class="card">
+            <h3>Govern</h3>
+            <div class="meta">
+              <span class="pill ok">Ongoing</span>
+              <span class="pill">Weekly or Monthly</span>
+              <span class="pill">Prevention</span>
+            </div>
+            <div class="cols">
+              <div>
+                <b>Outcome</b>
+                <ul>
+                  <li>KPI review + corrective actions</li>
+                  <li>Compliance spot checks (access, BAAs, training evidence)</li>
+                  <li>Vendor performance review + renewal planning</li>
+                </ul>
+              </div>
+              <div>
+                <b>Inputs Required</b>
+                <ul>
+                  <li>Standing meeting cadence</li>
+                  <li>Access to dashboards or exported KPI reports</li>
+                  <li>Notification of staff/vendor changes</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /tabs -->
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="band alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>Service Catalogue</h2>
+          <p class="subtitle">One service visible at a time. Click a tab.</p>
+        </div>
+      </div>
+
+      <div class="tabs" data-tabs>
+        <div class="tablist" role="tablist" aria-label="Services Tabs">
+          <button class="tab" role="tab" aria-selected="true" aria-controls="svc-a1" id="tab-svc-a1">A1 Health Check</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="svc-a2" id="tab-svc-a2">A2 Full Assessment</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="svc-a3" id="tab-svc-a3">A3 HIPAA/Security</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="svc-a4" id="tab-svc-a4">A4 RCM Leakage</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="svc-a5" id="tab-svc-a5">A5 VBC/MIPS</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="svc-b1" id="tab-svc-b1">B1 Remediation Sprint</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="svc-b2" id="tab-svc-b2">B2 EHR/PM Optimization</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="svc-b3" id="tab-svc-b3">B3 Access Control</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="svc-b4" id="tab-svc-b4">B4 Vendor Management</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="svc-c1" id="tab-svc-c1">C1 Monthly Oversight</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="svc-c2" id="tab-svc-c2">C2 Weekly Governance</button>
+        </div>
+
+        <!-- A1 -->
+        <div class="tabpanel active" role="tabpanel" id="svc-a1" aria-labelledby="tab-svc-a1">
+          <div class="card">
+            <h3>A1. Rapid Clinic Health Check</h3>
+            <div class="meta">
+              <span class="pill ok">Assessment</span>
+              <span class="pill">1–2 weeks</span>
+              <span class="pill">Fast triage</span>
+            </div>
+
+            <div class="tabs" data-tabs>
+              <div class="tablist" role="tablist" aria-label="A1 Details Tabs">
+                <button class="tab" role="tab" aria-selected="true" aria-controls="a1-out" id="tab-a1-out">Outcomes</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="a1-time" id="tab-a1-time">Timeline</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="a1-in" id="tab-a1-in">Inputs Required</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="a1-del" id="tab-a1-del">Sample Deliverables</button>
+              </div>
+
+              <div class="tabpanel active" role="tabpanel" id="a1-out" aria-labelledby="tab-a1-out">
+                <ul>
+                  <li>Top 10 operational/compliance/RCM issues identified and prioritized</li>
+                  <li>Quick wins you can execute in 7–14 days</li>
+                  <li>Clear next-step roadmap for the next 30–60 days</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="a1-time" aria-labelledby="tab-a1-time">
+                <ul>
+                  <li>Week 1: intake + workflow walkthrough + data pull</li>
+                  <li>Week 2: analysis + readout + quick-win execution plan</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="a1-in" aria-labelledby="tab-a1-in">
+                <ul>
+                  <li>Leadership interview (physician + administrator)</li>
+                  <li>Basic RCM snapshot (A/R aging; denial summary if available)</li>
+                  <li>EHR/PM report access or exported reports</li>
+                  <li>Any existing SOPs/policies (even incomplete)</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="a1-del" aria-labelledby="tab-a1-del">
+                <ul>
+                  <li>2–3 page executive summary</li>
+                  <li>Quick-win checklist (7–14 day actions)</li>
+                  <li>Risk list with owners + deadlines</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- A2 -->
+        <div class="tabpanel" role="tabpanel" id="svc-a2" aria-labelledby="tab-svc-a2">
+          <div class="card">
+            <h3>A2. Full Operational, IT, and Compliance Assessment</h3>
+            <div class="meta">
+              <span class="pill ok">Assessment</span>
+              <span class="pill">2–4 weeks</span>
+              <span class="pill">Comprehensive baseline</span>
+            </div>
+
+            <div class="tabs" data-tabs>
+              <div class="tablist" role="tablist" aria-label="A2 Details Tabs">
+                <button class="tab" role="tab" aria-selected="true" aria-controls="a2-out" id="tab-a2-out">Outcomes</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="a2-time" id="tab-a2-time">Timeline</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="a2-in" id="tab-a2-in">Inputs Required</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="a2-del" id="tab-a2-del">Sample Deliverables</button>
+              </div>
+
+              <div class="tabpanel active" role="tabpanel" id="a2-out" aria-labelledby="tab-a2-out">
+                <ul>
+                  <li>Measured baseline across ops, tech, privacy/security, RCM, and reporting</li>
+                  <li>Findings ranked by urgency, risk, and business impact</li>
+                  <li>30/60/90 remediation plan with accountability</li>
+                </ul>
+                <div class="callout private">
+                  <b>Private (internal)</b>
+                  <div class="small">Insert proprietary scoring model, benchmarks, and internal templates here. Hidden in <code>?mode=public</code>.</div>
+                </div>
+              </div>
+
+              <div class="tabpanel" role="tabpanel" id="a2-time" aria-labelledby="tab-a2-time">
+                <ul>
+                  <li>Week 1: intake + document collection + data exports</li>
+                  <li>Week 2: interviews + workflow observation</li>
+                  <li>Week 3: analysis + scoring + ROI sizing</li>
+                  <li>Week 4: executive readout + remediation plan</li>
+                </ul>
+              </div>
+
+              <div class="tabpanel" role="tabpanel" id="a2-in" aria-labelledby="tab-a2-in">
+                <ul>
+                  <li>Workflow walkthrough access (front desk, MA, billing touchpoints)</li>
+                  <li>Vendor list (EHR/PM, clearinghouse, phone, fax, marketing, IT, etc.)</li>
+                  <li>Access overview (users/roles, MFA status if available)</li>
+                  <li>RCM artifacts (A/R aging, denial patterns, write-offs)</li>
+                </ul>
+              </div>
+
+              <div class="tabpanel" role="tabpanel" id="a2-del" aria-labelledby="tab-a2-del">
+                <ul>
+                  <li>Clinic Risk & Revenue Scorecard (traffic-light)</li>
+                  <li>Top 25 findings ranked by urgency + ROI</li>
+                  <li>30/60/90 plan (owners, dates, milestones)</li>
+                  <li>Vendor inventory + BAA/contract risk notes</li>
+                  <li>Security & HIPAA snapshot (high-risk gaps + fixes)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- A3 -->
+        <div class="tabpanel" role="tabpanel" id="svc-a3" aria-labelledby="tab-svc-a3">
+          <div class="card">
+            <h3>A3. HIPAA + Security QuickScan</h3>
+            <div class="meta">
+              <span class="pill warn">Risk Reduction</span>
+              <span class="pill">90 minutes–1 week</span>
+              <span class="pill">High-probability gaps</span>
+            </div>
+
+            <div class="tabs" data-tabs>
+              <div class="tablist" role="tablist" aria-label="A3 Details Tabs">
+                <button class="tab" role="tab" aria-selected="true" aria-controls="a3-out" id="tab-a3-out">Outcomes</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="a3-time" id="tab-a3-time">Timeline</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="a3-in" id="tab-a3-in">Inputs Required</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="a3-del" id="tab-a3-del">Sample Deliverables</button>
+              </div>
+
+              <div class="tabpanel active" role="tabpanel" id="a3-out" aria-labelledby="tab-a3-out">
+                <ul>
+                  <li>Identify breach-prone gaps (shared logins, MFA, PHI texting/email, devices, backups)</li>
+                  <li>Define a practical minimum security baseline</li>
+                  <li>Create corrective action list with owners</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="a3-time" aria-labelledby="tab-a3-time">
+                <ul>
+                  <li>Day 1: intake + system inventory + access review</li>
+                  <li>Day 2–5: findings + minimum baseline + remediation steps</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="a3-in" aria-labelledby="tab-a3-in">
+                <ul>
+                  <li>List of systems storing/transmitting PHI</li>
+                  <li>MFA/access/offboarding status</li>
+                  <li>Vendor list + BAAs (if any)</li>
+                  <li>Device overview (workstations/laptops/mobile workflow)</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="a3-del" aria-labelledby="tab-a3-del">
+                <ul>
+                  <li>Security risk memo (top risks + fixes)</li>
+                  <li>Minimum Security Standard checklist</li>
+                  <li>Offboarding/access termination checklist</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- A4 -->
+        <div class="tabpanel" role="tabpanel" id="svc-a4" aria-labelledby="tab-svc-a4">
+          <div class="card">
+            <h3>A4. Revenue Cycle Leakage Assessment</h3>
+            <div class="meta">
+              <span class="pill ok">Assessment</span>
+              <span class="pill">2–3 weeks</span>
+              <span class="pill">Cash discipline</span>
+            </div>
+
+            <div class="tabs" data-tabs>
+              <div class="tablist" role="tablist" aria-label="A4 Details Tabs">
+                <button class="tab" role="tab" aria-selected="true" aria-controls="a4-out" id="tab-a4-out">Outcomes</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="a4-time" id="tab-a4-time">Timeline</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="a4-in" id="tab-a4-in">Inputs Required</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="a4-del" id="tab-a4-del">Sample Deliverables</button>
+              </div>
+
+              <div class="tabpanel active" role="tabpanel" id="a4-out" aria-labelledby="tab-a4-out">
+                <ul>
+                  <li>Pinpoint leakage from denials, eligibility, charge capture, and workflow breakdowns</li>
+                  <li>Standardize A/R governance and denial prevention routines</li>
+                  <li>Define KPIs and targets (and who owns them)</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="a4-time" aria-labelledby="tab-a4-time">
+                <ul>
+                  <li>Week 1: data pull + workflow mapping</li>
+                  <li>Week 2: denial root cause + action plan</li>
+                  <li>Week 3: governance routine + readout</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="a4-in" aria-labelledby="tab-a4-in">
+                <ul>
+                  <li>A/R aging (by payer and bucket)</li>
+                  <li>Denial summary or EOB samples</li>
+                  <li>Charge capture workflow overview</li>
+                  <li>Eligibility + prior auth process</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="a4-del" aria-labelledby="tab-a4-del">
+                <ul>
+                  <li>RCM KPI baseline + targets</li>
+                  <li>Denial taxonomy + root causes + fixes</li>
+                  <li>30–60 day action plan with owners</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- A5 -->
+        <div class="tabpanel" role="tabpanel" id="svc-a5" aria-labelledby="tab-svc-a5">
+          <div class="card">
+            <h3>A5. VBC / MACRA-MIPS Readiness Assessment</h3>
+            <div class="meta">
+              <span class="pill ok">Assessment</span>
+              <span class="pill">2–3 weeks</span>
+              <span class="pill">Quality operationalization</span>
+            </div>
+
+            <div class="tabs" data-tabs>
+              <div class="tablist" role="tablist" aria-label="A5 Details Tabs">
+                <button class="tab" role="tab" aria-selected="true" aria-controls="a5-out" id="tab-a5-out">Outcomes</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="a5-time" id="tab-a5-time">Timeline</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="a5-in" id="tab-a5-in">Inputs Required</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="a5-del" id="tab-a5-del">Sample Deliverables</button>
+              </div>
+
+              <div class="tabpanel active" role="tabpanel" id="a5-out" aria-labelledby="tab-a5-out">
+                <ul>
+                  <li>Operationalize measure capture (who collects what, where, and when)</li>
+                  <li>Reduce “submission scramble” with cadence and ownership</li>
+                  <li>Provider scorecards aligned to quality + productivity</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="a5-time" aria-labelledby="tab-a5-time">
+                <ul>
+                  <li>Week 1: measure inventory + workflow map</li>
+                  <li>Week 2: template/report review + gaps</li>
+                  <li>Week 3: scorecards + cadence + remediation plan</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="a5-in" aria-labelledby="tab-a5-in">
+                <ul>
+                  <li>Current measure set (MIPS/VBC/health plan requirements)</li>
+                  <li>EHR templates/workflows tied to documentation</li>
+                  <li>Existing quality reports/registries (if any)</li>
+                  <li>Payer programs and reporting obligations</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="a5-del" aria-labelledby="tab-a5-del">
+                <ul>
+                  <li>Measure capture map (workflow + accountability)</li>
+                  <li>Reporting pack design (dashboards + cadence)</li>
+                  <li>Improvement roadmap tied to scoring outcomes</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- B1 -->
+        <div class="tabpanel" role="tabpanel" id="svc-b1" aria-labelledby="tab-svc-b1">
+          <div class="card">
+            <h3>B1. 30–90 Day Remediation Sprint</h3>
+            <div class="meta">
+              <span class="pill warn">Implementation</span>
+              <span class="pill">4–12 weeks</span>
+              <span class="pill">Time-boxed execution</span>
+            </div>
+
+            <div class="tabs" data-tabs>
+              <div class="tablist" role="tablist" aria-label="B1 Details Tabs">
+                <button class="tab" role="tab" aria-selected="true" aria-controls="b1-out" id="tab-b1-out">Outcomes</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="b1-time" id="tab-b1-time">Timeline</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="b1-in" id="tab-b1-in">Inputs Required</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="b1-del" id="tab-b1-del">Sample Deliverables</button>
+              </div>
+
+              <div class="tabpanel active" role="tabpanel" id="b1-out" aria-labelledby="tab-b1-out">
+                <ul>
+                  <li>Implement high-impact fixes from the assessment</li>
+                  <li>Standardize SOPs and train staff</li>
+                  <li>Establish governance routines (KPIs, audits, vendor control)</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="b1-time" aria-labelledby="tab-b1-time">
+                <ul>
+                  <li>Weeks 1–2: quick wins + risk containment</li>
+                  <li>Weeks 3–6: workflow standardization + reporting</li>
+                  <li>Weeks 7–12: hardening + audit evidence + sustainment</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="b1-in" aria-labelledby="tab-b1-in">
+                <ul>
+                  <li>Assigned internal owners per workstream</li>
+                  <li>Access to EHR/PM configs + reporting</li>
+                  <li>Vendor contacts + escalation paths</li>
+                  <li>Weekly check-in availability</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="b1-del" aria-labelledby="tab-b1-del">
+                <ul>
+                  <li>Implemented SOPs + training artifacts</li>
+                  <li>KPI dashboard (ops + RCM + quality)</li>
+                  <li>Updated risk register + progress tracker</li>
+                  <li>90-day progress report with metric movement</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- B2 -->
+        <div class="tabpanel" role="tabpanel" id="svc-b2" aria-labelledby="tab-svc-b2">
+          <div class="card">
+            <h3>B2. EHR/PM Stabilization and Optimization</h3>
+            <div class="meta">
+              <span class="pill warn">Implementation</span>
+              <span class="pill">4–10 weeks</span>
+              <span class="pill">Workflow + reporting</span>
+            </div>
+
+            <div class="tabs" data-tabs>
+              <div class="tablist" role="tablist" aria-label="B2 Details Tabs">
+                <button class="tab" role="tab" aria-selected="true" aria-controls="b2-out" id="tab-b2-out">Outcomes</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="b2-time" id="tab-b2-time">Timeline</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="b2-in" id="tab-b2-in">Inputs Required</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="b2-del" id="tab-b2-del">Sample Deliverables</button>
+              </div>
+
+              <div class="tabpanel active" role="tabpanel" id="b2-out" aria-labelledby="tab-b2-out">
+                <ul>
+                  <li>Cleaner templates + standardized documentation support</li>
+                  <li>Scheduling templates aligned to visit types</li>
+                  <li>Reliable reporting pack for leadership decisions</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="b2-time" aria-labelledby="tab-b2-time">
+                <ul>
+                  <li>Weeks 1–2: workflow review + high-impact config fixes</li>
+                  <li>Weeks 3–6: templates + inbasket/referrals/refills standardization</li>
+                  <li>Weeks 7–10: reporting pack + training + sustainment</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="b2-in" aria-labelledby="tab-b2-in">
+                <ul>
+                  <li>EHR/PM admin access (or vendor-coordinated access)</li>
+                  <li>Current templates/workflow examples</li>
+                  <li>Provider/staff availability for validation sessions</li>
+                  <li>List of required reports/KPIs + current pain points</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="b2-del" aria-labelledby="tab-b2-del">
+                <ul>
+                  <li>Optimized templates + workflow documentation</li>
+                  <li>Standard report pack (productivity, quality, RCM indicators)</li>
+                  <li>Super-user playbook + training plan</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- B3 -->
+        <div class="tabpanel" role="tabpanel" id="svc-b3" aria-labelledby="tab-svc-b3">
+          <div class="card">
+            <h3>B3. Access Control + Joiner/Mover/Leaver Program</h3>
+            <div class="meta">
+              <span class="pill risk">Compliance</span>
+              <span class="pill">2–6 weeks</span>
+              <span class="pill">Reduce breach risk</span>
+            </div>
+
+            <div class="tabs" data-tabs>
+              <div class="tablist" role="tablist" aria-label="B3 Details Tabs">
+                <button class="tab" role="tab" aria-selected="true" aria-controls="b3-out" id="tab-b3-out">Outcomes</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="b3-time" id="tab-b3-time">Timeline</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="b3-in" id="tab-b3-in">Inputs Required</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="b3-del" id="tab-b3-del">Sample Deliverables</button>
+              </div>
+
+              <div class="tabpanel active" role="tabpanel" id="b3-out" aria-labelledby="tab-b3-out">
+                <ul>
+                  <li>Role-based access approach and ownership</li>
+                  <li>Standard onboarding/offboarding for PHI systems</li>
+                  <li>Routine access audits to prevent drift</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="b3-time" aria-labelledby="tab-b3-time">
+                <ul>
+                  <li>Weeks 1–2: user/role inventory + gap identification</li>
+                  <li>Weeks 3–4: role matrix + provisioning workflows</li>
+                  <li>Weeks 5–6: audit cadence + evidence structure</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="b3-in" aria-labelledby="tab-b3-in">
+                <ul>
+                  <li>User lists/roles (or system exports)</li>
+                  <li>Current onboarding/offboarding process (even informal)</li>
+                  <li>MFA status + device policies</li>
+                  <li>System list and admins for each system</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="b3-del" aria-labelledby="tab-b3-del">
+                <ul>
+                  <li>Role-based access matrix + provisioning checklist</li>
+                  <li>Offboarding checklist + monthly access audit SOP</li>
+                  <li>MFA rollout plan (staged and practical)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- B4 -->
+        <div class="tabpanel" role="tabpanel" id="svc-b4" aria-labelledby="tab-svc-b4">
+          <div class="card">
+            <h3>B4. Vendor Consolidation and Management Program</h3>
+            <div class="meta">
+              <span class="pill warn">Implementation</span>
+              <span class="pill">2–6 weeks</span>
+              <span class="pill">Control the sprawl</span>
+            </div>
+
+            <div class="tabs" data-tabs>
+              <div class="tablist" role="tablist" aria-label="B4 Details Tabs">
+                <button class="tab" role="tab" aria-selected="true" aria-controls="b4-out" id="tab-b4-out">Outcomes</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="b4-time" id="tab-b4-time">Timeline</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="b4-in" id="tab-b4-in">Inputs Required</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="b4-del" id="tab-b4-del">Sample Deliverables</button>
+              </div>
+
+              <div class="tabpanel active" role="tabpanel" id="b4-out" aria-labelledby="tab-b4-out">
+                <ul>
+                  <li>Vendor inventory, renewal control, and accountability</li>
+                  <li>BAA collection and risk reduction for PHI-touching vendors</li>
+                  <li>Fewer renewal surprises and less vendor finger-pointing</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="b4-time" aria-labelledby="tab-b4-time">
+                <ul>
+                  <li>Weeks 1–2: inventory + renewal calendar build</li>
+                  <li>Weeks 3–4: BAA/security requirements + onboarding standard</li>
+                  <li>Weeks 5–6: SLA/escalation + consolidation opportunities</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="b4-in" aria-labelledby="tab-b4-in">
+                <ul>
+                  <li>Vendor list and contracts (or invoices)</li>
+                  <li>Renewal dates (if known)</li>
+                  <li>BAAs on file (if any)</li>
+                  <li>Primary contacts for each vendor</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="b4-del" aria-labelledby="tab-b4-del">
+                <ul>
+                  <li>Vendor register + renewal calendar</li>
+                  <li>Vendor onboarding checklist (BAA, security, SLAs)</li>
+                  <li>Escalation tree + owner assignments</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- C1 -->
+        <div class="tabpanel" role="tabpanel" id="svc-c1" aria-labelledby="tab-svc-c1">
+          <div class="card">
+            <h3>C1. Monthly Oversight Mentorship (Retainer)</h3>
+            <div class="meta">
+              <span class="pill ok">Ongoing</span>
+              <span class="pill">Monthly cadence</span>
+              <span class="pill">Governance</span>
+            </div>
+
+            <div class="tabs" data-tabs>
+              <div class="tablist" role="tablist" aria-label="C1 Details Tabs">
+                <button class="tab" role="tab" aria-selected="true" aria-controls="c1-out" id="tab-c1-out">Outcomes</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="c1-time" id="tab-c1-time">Cadence</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="c1-in" id="tab-c1-in">Inputs Required</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="c1-del" id="tab-c1-del">Sample Deliverables</button>
+              </div>
+
+              <div class="tabpanel active" role="tabpanel" id="c1-out" aria-labelledby="tab-c1-out">
+                <ul>
+                  <li>Maintain operational discipline and compliance readiness</li>
+                  <li>Track KPIs and prevent regression</li>
+                  <li>Identify new issues early and handle them predictably</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="c1-time" aria-labelledby="tab-c1-time">
+                <ul>
+                  <li>Monthly leadership review (60–90 minutes)</li>
+                  <li>Monthly KPI review + action tracking</li>
+                  <li>Spot-check compliance (access, BAAs, training evidence)</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="c1-in" aria-labelledby="tab-c1-in">
+                <ul>
+                  <li>KPI access (dashboards or exported reports)</li>
+                  <li>Point person for action tracking</li>
+                  <li>Notification of staff/vendor changes</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="c1-del" aria-labelledby="tab-c1-del">
+                <ul>
+                  <li>1-page executive summary (monthly)</li>
+                  <li>Updated risk register</li>
+                  <li>Updated action plan with owners/dates</li>
+                  <li>Compliance spot-check notes</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- C2 -->
+        <div class="tabpanel" role="tabpanel" id="svc-c2" aria-labelledby="tab-svc-c2">
+          <div class="card">
+            <h3>C2. Weekly Operational Governance (Retainer)</h3>
+            <div class="meta">
+              <span class="pill ok">Ongoing</span>
+              <span class="pill">Weekly cadence</span>
+              <span class="pill">Hands-on</span>
+            </div>
+
+            <div class="tabs" data-tabs>
+              <div class="tablist" role="tablist" aria-label="C2 Details Tabs">
+                <button class="tab" role="tab" aria-selected="true" aria-controls="c2-out" id="tab-c2-out">Outcomes</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="c2-time" id="tab-c2-time">Cadence</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="c2-in" id="tab-c2-in">Inputs Required</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="c2-del" id="tab-c2-del">Sample Deliverables</button>
+              </div>
+
+              <div class="tabpanel active" role="tabpanel" id="c2-out" aria-labelledby="tab-c2-out">
+                <ul>
+                  <li>Faster execution on remediation items and new priorities</li>
+                  <li>Structured escalations + decision support</li>
+                  <li>Regular KPI review + corrective actions</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="c2-time" aria-labelledby="tab-c2-time">
+                <ul>
+                  <li>Weekly huddle (30–60 minutes)</li>
+                  <li>Active project/task tracking</li>
+                  <li>Ongoing governance to prevent drift</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="c2-in" aria-labelledby="tab-c2-in">
+                <ul>
+                  <li>Access to a task tracker (we can provide a lightweight one)</li>
+                  <li>Timely decisions from ownership on blockers</li>
+                  <li>Regular access to KPI exports/dashboards</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="c2-del" aria-labelledby="tab-c2-del">
+                <ul>
+                  <li>Decision log + blocker list</li>
+                  <li>Updated project tracker with next actions</li>
+                  <li>Weekly KPI snapshot and commentary</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /services -->
+    </div>
+  </section>
+
+  <!-- BUNDLES -->
+  <section id="bundles" class="band">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>Common Bundles</h2>
+          <p class="subtitle">Packages clinics understand. Tabs for bundles too.</p>
+        </div>
+      </div>
+
+      <div class="tabs" data-tabs>
+        <div class="tablist" role="tablist" aria-label="Bundles Tabs">
+          <button class="tab" role="tab" aria-selected="true" aria-controls="bun-stabilize" id="tab-bun-stabilize">Stabilize</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="bun-optimize" id="tab-bun-optimize">Optimize</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="bun-scale" id="tab-bun-scale">Scale</button>
+          <button class="tab private" role="tab" aria-selected="false" aria-controls="bun-private" id="tab-bun-private">Private Notes</button>
+        </div>
+
+        <div class="tabpanel active" role="tabpanel" id="bun-stabilize" aria-labelledby="tab-bun-stabilize">
+          <div class="card">
+            <h3>Bundle 1: Stabilize</h3>
+            <div class="meta">
+              <span class="pill ok">Best for firefighting</span>
+              <span class="pill">4–8 weeks to initial stability</span>
+            </div>
+
+            <div class="tabs" data-tabs>
+              <div class="tablist" role="tablist" aria-label="Stabilize Details Tabs">
+                <button class="tab" role="tab" aria-selected="true" aria-controls="stab-inc" id="tab-stab-inc">Includes</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="stab-out" id="tab-stab-out">Outcomes</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="stab-in" id="tab-stab-in">Inputs Required</button>
+              </div>
+
+              <div class="tabpanel active" role="tabpanel" id="stab-inc" aria-labelledby="tab-stab-inc">
+                <ul>
+                  <li>Rapid Health Check or Full Assessment</li>
+                  <li>30–90 Day Remediation Sprint</li>
+                  <li>Optional Monthly Oversight Retainer</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="stab-out" aria-labelledby="tab-stab-out">
+                <ul>
+                  <li>Reduced operational bottlenecks and recurring “urgent surprises”</li>
+                  <li>Basic governance: KPIs, owners, cadence, and documentation</li>
+                  <li>Initial risk containment and workflow stability</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="stab-in" aria-labelledby="tab-stab-in">
+                <ul>
+                  <li>Weekly check-ins during sprint</li>
+                  <li>Access to EHR/PM reporting and key staff interviews</li>
+                  <li>Named internal owners for follow-through</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="tabpanel" role="tabpanel" id="bun-optimize" aria-labelledby="tab-bun-optimize">
+          <div class="card">
+            <h3>Bundle 2: Optimize</h3>
+            <div class="meta">
+              <span class="pill ok">Best for revenue + workflow leaks</span>
+              <span class="pill">6–12 weeks</span>
+            </div>
+
+            <div class="tabs" data-tabs>
+              <div class="tablist" role="tablist" aria-label="Optimize Details Tabs">
+                <button class="tab" role="tab" aria-selected="true" aria-controls="opt-inc" id="tab-opt-inc">Includes</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="opt-out" id="tab-opt-out">Outcomes</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="opt-in" id="tab-opt-in">Inputs Required</button>
+              </div>
+
+              <div class="tabpanel active" role="tabpanel" id="opt-inc" aria-labelledby="tab-opt-inc">
+                <ul>
+                  <li>RCM Leakage Assessment</li>
+                  <li>EHR/PM Optimization</li>
+                  <li>Dashboards + scorecards</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="opt-out" aria-labelledby="tab-opt-out">
+                <ul>
+                  <li>Improved denial prevention and A/R governance</li>
+                  <li>Better charge capture and workflow consistency</li>
+                  <li>Repeatable reporting that reduces “guessing”</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="opt-in" aria-labelledby="tab-opt-in">
+                <ul>
+                  <li>RCM data exports (A/R, denials, write-offs)</li>
+                  <li>EHR/PM admin access or vendor coordination</li>
+                  <li>Provider/staff validation sessions</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="tabpanel" role="tabpanel" id="bun-scale" aria-labelledby="tab-bun-scale">
+          <div class="card">
+            <h3>Bundle 3: Scale</h3>
+            <div class="meta">
+              <span class="pill ok">Best for growth / multi-provider expansion</span>
+              <span class="pill">8–16 weeks</span>
+            </div>
+
+            <div class="tabs" data-tabs>
+              <div class="tablist" role="tablist" aria-label="Scale Details Tabs">
+                <button class="tab" role="tab" aria-selected="true" aria-controls="sca-inc" id="tab-sca-inc">Includes</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="sca-out" id="tab-sca-out">Outcomes</button>
+                <button class="tab" role="tab" aria-selected="false" aria-controls="sca-in" id="tab-sca-in">Inputs Required</button>
+              </div>
+
+              <div class="tabpanel active" role="tabpanel" id="sca-inc" aria-labelledby="tab-sca-inc">
+                <ul>
+                  <li>Full Assessment</li>
+                  <li>Access Control + Vendor Management Program</li>
+                  <li>Weekly or Monthly Oversight</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="sca-out" aria-labelledby="tab-sca-out">
+                <ul>
+                  <li>Audit-ready posture and controlled onboarding/offboarding</li>
+                  <li>Fewer vendor failures and clearer escalation</li>
+                  <li>Governance that scales beyond “two people running everything”</li>
+                </ul>
+              </div>
+              <div class="tabpanel" role="tabpanel" id="sca-in" aria-labelledby="tab-sca-in">
+                <ul>
+                  <li>Vendor/contracts access + renewal dates</li>
+                  <li>Staff roster and role definitions</li>
+                  <li>Ownership commitment to decisions and timelines</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="tabpanel private" role="tabpanel" id="bun-private" aria-labelledby="tab-bun-private">
+          <div class="card">
+            <h3>Private: Notes (internal)</h3>
+            <p class="small">Hidden automatically in <code>?mode=public</code>.</p>
+            <div class="hr"></div>
+            <ul>
+              <li>Assessment tiers by provider count (1–3, 4–8, 9–20 providers)</li>
+              <li>Retainer tiers (monthly vs weekly) with response windows</li>
+              <li>Optional add-ons: audit response, migration advisory, security hardening</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="callout">
+        <b>What we don’t do (by design)</b>
+        <div class="small">We avoid becoming “your printer support” or your full billing department. We build systems, governance, and accountability so your staff and vendors perform.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT (WITH FORMSPREE) -->
+  <section id="contact" class="band alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>Contact</h2>
+          <p class="subtitle">Request an initial consult. No PHI. Ever.</p>
+        </div>
+      </div>
+
+      <div class="tabs" data-tabs>
+        <div class="tablist" role="tablist" aria-label="Contact Tabs">
+          <button class="tab" role="tab" aria-selected="true" aria-controls="ct-form" id="tab-ct-form">Consult Request Form</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="ct-info" id="tab-ct-info">Contact Info</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="ct-intake" id="tab-ct-intake">What to Send</button>
+          <button class="tab private" role="tab" aria-selected="false" aria-controls="ct-private" id="tab-ct-private">Private Notes</button>
+        </div>
+
+        <!-- FORM -->
+        <div class="tabpanel active" role="tabpanel" id="ct-form" aria-labelledby="tab-ct-form">
+          <div class="card">
+            <h3>Initial Consultation Request</h3>
+
+            <div class="callout warn">
+              <b>Do not include PHI</b>
+              <div class="small">No patient names, DOBs, MRNs, clinical details, screenshots with patient info, or anything that identifies a patient.</div>
+            </div>
+
+            <form id="consultForm" action="https://formspree.io/f/mbdjbkvv" method="POST">
+              <!-- Honeypot anti-spam -->
+              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+              <input type="hidden" name="_subject" value="New Consultation Request - Transworld Medical Management" />
+
+              <div class="form-grid">
+                <div>
+                  <label for="ctf-name">Your Name *</label>
+                  <input id="ctf-name" name="name" required autocomplete="name" />
+                </div>
+
+                <div>
+                  <label for="ctf-email">Email *</label>
+                  <input id="ctf-email" name="email" type="email" required autocomplete="email" />
+                </div>
+
+                <div>
+                  <label for="ctf-phone">Phone *</label>
+                  <input id="ctf-phone" name="phone" required autocomplete="tel" />
+                </div>
+
+                <div>
+                  <label for="ctf-role">Your Role *</label>
+                  <select id="ctf-role" name="role" required>
+                    <option value="" selected disabled>Select one</option>
+                    <option>Physician Owner</option>
+                    <option>Clinic Administrator</option>
+                    <option>Practice Manager</option>
+                    <option>Operations / COO</option>
+                    <option>Billing / RCM Lead</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="ctf-org">Clinic / Organization Name *</label>
+                  <input id="ctf-org" name="clinic_name" required />
+                </div>
+
+                <div>
+                  <label for="ctf-location">Clinic Location (City/County) *</label>
+                  <input id="ctf-location" name="location" required placeholder="e.g., Clearwater, Pinellas County" />
+                </div>
+
+                <div>
+                  <label for="ctf-counties">Counties Served (if multiple)</label>
+                  <select id="ctf-counties" name="counties_served" multiple size="6">
+                    <option>Hillsborough</option>
+                    <option>Pinellas</option>
+                    <option>Pasco</option>
+                    <option>Hernando</option>
+                    <option>Sarasota</option>
+                    <option>Manatee</option>
+                    <option>Other (outside service area)</option>
+                  </select>
+                  <div class="fineprint">Hold Ctrl/Command to select multiple.</div>
+                </div>
+
+                <div>
+                  <label for="ctf-specialty">Specialty *</label>
+                  <input id="ctf-specialty" name="specialty" required placeholder="e.g., Primary Care, Cardiology, Pediatrics" />
+                </div>
+
+                <div>
+                  <label for="ctf-providers">Number of Providers *</label>
+                  <select id="ctf-providers" name="provider_count" required>
+                    <option value="" selected disabled>Select</option>
+                    <option>1</option>
+                    <option>2–3</option>
+                    <option>4–8</option>
+                    <option>9–15</option>
+                    <option>16–25</option>
+                    <option>26+</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="ctf-staff">Number of Staff (non-provider) *</label>
+                  <select id="ctf-staff" name="staff_count" required>
+                    <option value="" selected disabled>Select</option>
+                    <option>1–5</option>
+                    <option>6–10</option>
+                    <option>11–20</option>
+                    <option>21–35</option>
+                    <option>36+</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="ctf-locationsCount">Number of Locations *</label>
+                  <select id="ctf-locationsCount" name="location_count" required>
+                    <option value="" selected disabled>Select</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4+</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="ctf-ehr">EHR / EMR *</label>
+                  <input id="ctf-ehr" name="ehr" required placeholder="e.g., eClinicalWorks, athenahealth, NextGen" />
+                </div>
+
+                <div>
+                  <label for="ctf-pm">Practice Management / Billing System</label>
+                  <input id="ctf-pm" name="pm_system" placeholder="If separate from EHR" />
+                </div>
+
+                <div>
+                  <label for="ctf-payerMix">Payer Mix (rough %)</label>
+                  <input id="ctf-payerMix" name="payer_mix" placeholder="e.g., Medicare 40%, Commercial 40%, Medicaid 20%" />
+                </div>
+
+                <div>
+                  <label for="ctf-need">Primary Need *</label>
+                  <select id="ctf-need" name="primary_need" required>
+                    <option value="" selected disabled>Select one</option>
+                    <option>Operational Assessment (overall)</option>
+                    <option>HIPAA / Security Review</option>
+                    <option>Revenue Cycle / Denials / A/R</option>
+                    <option>EHR/PM Optimization + Reporting</option>
+                    <option>VBC / MIPS / Quality Reporting</option>
+                    <option>Ongoing Oversight / Mentorship</option>
+                    <option>Audit Readiness</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="ctf-urgency">Urgency *</label>
+                  <select id="ctf-urgency" name="urgency" required>
+                    <option value="" selected disabled>Select</option>
+                    <option>Urgent (0–2 weeks)</option>
+                    <option>Soon (2–6 weeks)</option>
+                    <option>Planned (6–12 weeks)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="ctf-pain">Top 3 Pain Points *</label>
+                  <textarea id="ctf-pain" name="top_pain_points" required placeholder="Example: Denials rising, shared logins, no SOPs, inconsistent onboarding, reporting gaps..."></textarea>
+                </div>
+
+                <div>
+                  <label for="ctf-goals">Desired Outcomes</label>
+                  <textarea id="ctf-goals" name="desired_outcomes" placeholder="Example: Reduce A/R days, implement access controls, standardize workflows, improve MIPS capture..."></textarea>
+                </div>
+
+                <div>
+                  <label for="ctf-availability">Preferred Call Times</label>
+                  <input id="ctf-availability" name="preferred_call_times" placeholder="e.g., Tue/Thu 2–5pm" />
+                </div>
+
+                <div>
+                  <label for="ctf-how">How did you hear about us?</label>
+                  <input id="ctf-how" name="referral_source" placeholder="Referral / Google / LinkedIn / Other" />
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button class="btn" type="submit">Submit Request</button>
+                <button class="btn secondary" type="reset">Clear</button>
+              </div>
+
+              <div id="formStatus" class="status" role="status" aria-live="polite"></div>
+              <div class="fineprint">
+                By submitting, you confirm you are not sending PHI. We will respond to schedule an initial consultation.
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- INFO -->
+        <div class="tabpanel" role="tabpanel" id="ct-info" aria-labelledby="tab-ct-info">
+          <div class="card">
+            <h3>Transworld Medical Management, LLC</h3>
+            <div class="meta">
+              <span class="pill ok">Tampa Bay, FL</span>
+              <span class="pill">Hillsborough • Pinellas • Pasco • Hernando • Sarasota • Manatee</span>
+            </div>
+
+            <div class="hr"></div>
+
+            <!-- Replace placeholders -->
+            <p class="small"><b>Email:</b> <a class="mutedlink" href="mailto:info@yourdomain.com">info@yourdomain.com</a></p>
+            <p class="small"><b>Phone:</b> <a class="mutedlink" href="tel:+18135551234">(813) 555-1234</a></p>
+            <p class="small"><b>Website:</b> <a class="mutedlink" href="#">yourdomain.com</a></p>
+
+            <div class="callout" style="margin-top:14px">
+              <b>Note</b>
+              <div class="small">Website content is informational and not legal advice. For legal interpretation, consult qualified counsel.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- WHAT TO SEND -->
+        <div class="tabpanel" role="tabpanel" id="ct-intake" aria-labelledby="tab-ct-intake">
+          <div class="card">
+            <h3>What to Send for an Accurate Quote</h3>
+            <ul>
+              <li>Provider count, specialties, locations</li>
+              <li>EHR/PM and clearinghouse names</li>
+              <li>Basic RCM snapshot (A/R aging, denials summary if available)</li>
+              <li>Any recent audit requests or compliance concerns</li>
+              <li>Top 3 pain points (operations, billing, IT, reporting, staff issues)</li>
+            </ul>
+            <div class="callout">
+              <b>Tip</b>
+              <div class="small">If you don’t have reports, send what you do have (screenshots, exports, payer portal summaries). We can work with reality.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRIVATE -->
+        <div class="tabpanel private" role="tabpanel" id="ct-private" aria-labelledby="tab-ct-private">
+          <div class="card">
+            <h3>Private Notes (internal)</h3>
+            <p class="small">Hidden automatically in <code>?mode=public</code>.</p>
+            <ul>
+              <li>Add booking link/calendar once domain is live.</li>
+              <li>Keep this form PHI-free. If someone insists on PHI, redirect to a secure channel.</li>
+              <li>Add anonymized case studies (before/after KPIs) as you build history.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div><!-- /contact tabs -->
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="small">© <span id="year"></span> Transworld Medical Management, LLC. All rights reserved.</div>
+  </div>
+</footer>
+
+<button class="toTop" id="toTop" aria-label="Scroll to top" title="Scroll to top">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12 5l7 7-1.4 1.4L13 8.8V20h-2V8.8L6.4 13.4 5 12z"></path>
+  </svg>
+</button>
+
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Public mode: hide .private
+  (function(){
+    const params = new URLSearchParams(window.location.search);
+    const mode = (params.get('mode') || '').toLowerCase();
+    if(mode === 'public'){
+      document.querySelectorAll('.private').forEach(el => el.style.display = 'none');
+      document.querySelectorAll('.public-note').forEach(el => el.style.display = 'block');
+    }
+  })();
+
+  // Tabs: supports nested tab groups
+  (function(){
+    function initTabs(root){
+      const tabGroups = root.querySelectorAll('[data-tabs]');
+      tabGroups.forEach(group => {
+        const tabs = Array.from(group.querySelectorAll(':scope > .tablist [role="tab"]'));
+        const panels = Array.from(group.querySelectorAll(':scope > .tabpanel'));
+        if(!tabs.length || !panels.length) return;
+
+        let activeIndex = tabs.findIndex(t => t.getAttribute('aria-selected') === 'true');
+        if(activeIndex < 0) activeIndex = 0;
+
+        function activate(index){
+          tabs.forEach((t,i) => t.setAttribute('aria-selected', i === index ? 'true' : 'false'));
+          panels.forEach(p => p.classList.remove('active'));
+
+          const targetId = tabs[index].getAttribute('aria-controls');
+          const target = group.querySelector('#' + CSS.escape(targetId));
+          if(target) target.classList.add('active');
+        }
+
+        tabs.forEach((t,i) => {
+          t.addEventListener('click', () => activate(i));
+          t.addEventListener('keydown', (e) => {
+            const key = e.key;
+            if(!['ArrowLeft','ArrowRight','Home','End'].includes(key)) return;
+            e.preventDefault();
+            let next = i;
+            if(key === 'ArrowRight') next = (i + 1) % tabs.length;
+            if(key === 'ArrowLeft') next = (i - 1 + tabs.length) % tabs.length;
+            if(key === 'Home') next = 0;
+            if(key === 'End') next = tabs.length - 1;
+            tabs[next].focus();
+            activate(next);
+          });
+        });
+
+        activate(activeIndex);
+      });
+    }
+    initTabs(document);
+  })();
+
+  // Scroll-to-top
+  (function(){
+    const btn = document.getElementById('toTop');
+    function toggle(){
+      if(window.scrollY > 500) btn.classList.add('show');
+      else btn.classList.remove('show');
+    }
+    window.addEventListener('scroll', toggle, {passive:true});
+    toggle();
+    btn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+  })();
+
+  // Formspree AJAX submit (keeps user on page)
+  (function(){
+    const form = document.getElementById('consultForm');
+    const status = document.getElementById('formStatus');
+    if(!form || !status) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      status.className = 'status';
+      status.style.display = 'block';
+      status.textContent = 'Submitting...';
+
+      try{
+        const data = new FormData(form);
+        const res = await fetch(form.action, {
+          method: form.method,
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if(res.ok){
+          status.className = 'status';
+          status.textContent = 'Thanks. Your request was submitted. We will contact you to schedule the initial consult.';
+          form.reset();
+        } else {
+          const json = await res.json().catch(() => null);
+          status.className = 'status error';
+          status.textContent = (json && json.errors && json.errors.length)
+            ? json.errors.map(e => e.message).join(' ')
+            : 'Submission failed. Please try again or email us directly.';
+        }
+      } catch(err){
+        status.className = 'status error';
+        status.textContent = 'Submission failed (network issue). Please try again or email us directly.';
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>

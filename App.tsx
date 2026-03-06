@@ -7,7 +7,6 @@ import WhatWeFix from './pages/WhatWeFix';
 import HowWeWork from './pages/HowWeWork';
 import Packages from './pages/Packages';
 import Contact from './pages/Contact';
-import Resources from './pages/Resources';
 import HipaaHub from './pages/HipaaHub';
 import M365Audit from './pages/M365Audit';
 
@@ -15,7 +14,7 @@ const MainLayout: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-grow">
+      <main className="flex-grow pt-20">
         <Outlet />
       </main>
       <Footer />
@@ -32,7 +31,6 @@ const App: React.FC = () => {
           <Route path="/what-we-fix" element={<WhatWeFix />} />
           <Route path="/how-we-work" element={<HowWeWork />} />
           <Route path="/packages" element={<Packages />} />
-          <Route path="/resources" element={<Resources />} />
           <Route path="/contact" element={<Contact />} />
         </Route>
         <Route path="/hipaa-hub" element={<HipaaHub />} />

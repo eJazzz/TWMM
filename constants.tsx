@@ -7,13 +7,12 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'What We Fix', path: '/what-we-fix' },
   { label: 'How We Work', path: '/how-we-work' },
   { label: 'Packages & Services', path: '/packages' },
-  { label: 'Resources', path: '/resources' },
   { label: 'Contact', path: '/contact' },
 ];
 
 export const PROBLEM_GRID = [
   { title: 'Ops & SOPs', icon: 'fa-clipboard-list', desc: 'Standardizing workflows to eliminate variance and clinician burnout.' },
-  { title: 'HIPAA & Compliance', icon: 'fa-shield-halved', desc: 'Rigorous audit-readiness and technical safeguard implementation.' },
+  { title: 'HIPAA & Compliance', icon: 'fa-shield-medical', desc: 'Rigorous audit-readiness and technical safeguard implementation.' },
   { title: 'Revenue Cycle', icon: 'fa-chart-line', desc: 'Capturing every dollar through better coding and billing governance.' },
   { title: 'EHR Optimization', icon: 'fa-laptop-medical', desc: 'Aligning technology with clinical reality, not against it.' },
   { title: 'VBC & MIPS', icon: 'fa-award', desc: 'Maximizing quality scores and navigating Value-Based Care contracts.' },
@@ -102,32 +101,11 @@ export const PACKAGES: Package[] = [
   },
 ];
 
-export const SPECIAL_BUNDLES = [
-  {
-    id: 'annual-hipaa-training',
-    name: 'Annual Staff HIPAA Certification',
-    category: 'Education',
-    description: 'Comprehensive staff training module including HIPAA Security Rule updates, social engineering defense, and automated completion tracking.',
-    pricing: 'Flat-fee based on staff size',
-    icon: 'fa-user-graduate'
-  },
-  {
-    id: 'security-risk-assessment',
-    name: 'Comprehensive SRA Audit',
-    category: 'Regulatory',
-    description: 'The mandatory annual Security Risk Assessment (SRA) including technical scan, physical safeguard audit, and remediation roadmap.',
-    pricing: 'Fixed Project Fee',
-    icon: 'fa-file-shield'
-  }
-];
-
 export const SERVICE_LIBRARY: ServiceItem[] = [
   { code: 'A', category: 'Assess', title: 'Compliance Gap Audit', description: 'Technical and administrative HIPAA assessment.' },
   { code: 'A', category: 'Assess', title: 'Revenue Integrity Scan', description: 'Deep dive into coding, billing, and credentialing status.' },
-  { code: 'A', category: 'Assess', title: 'Annual Security Risk Assessment (SRA)', description: 'Mandatory annual deep-dive into all administrative and technical safeguards.' },
   { code: 'B', category: 'Implement', title: 'Workflow Remediation', description: 'On-site process improvement for front and back-office.' },
   { code: 'B', category: 'Implement', title: 'EHR Re-Configuration', description: 'Adjusting templates and logic for better UX and data.' },
-  { code: 'B', category: 'Implement', title: 'Staff HIPAA & Compliance Training', description: 'Interactive annual curriculum for clinical and admin staff.' },
   { code: 'C', category: 'Govern', title: 'Fractional Admin Services', description: 'Ongoing executive support for operations and RCM.' },
   { code: 'C', category: 'Govern', title: 'Managed Compliance Service', description: 'Annual SRA updates, training, and policy management.' },
 ];
