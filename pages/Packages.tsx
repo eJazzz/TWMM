@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { Link, useOutletContext } from 'react-router-dom';
 import { PACKAGES, SERVICE_LIBRARY } from '../constants';
 import { Check, ArrowRight, Zap, Target, Clock, Shield } from 'lucide-react';

@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import { Mail, MapPin, Send, CheckCircle2, AlertTriangle, Building2, User, Users, MessageSquare } from 'lucide-react';
 

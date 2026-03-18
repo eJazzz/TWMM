@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { useOutletContext } from 'react-router-dom';
 import { HOW_WE_WORK_STEPS } from '../constants';
 import { Search, BarChart3, Wrench, ShieldCheck, ChevronRight, CheckCircle2, FileInput, Laptop, Receipt, Briefcase } from 'lucide-react';

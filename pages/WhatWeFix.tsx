@@ -1,4 +1,4 @@
-
+import React, { useState } from 'react';
 import { Link, useOutletContext } from 'react-router-dom';
 import { PAIN_POINTS } from '../constants';
 import { PlusCircle, MinusCircle, CheckCircle, MapPin, AlertTriangle } from 'lucide-react';
