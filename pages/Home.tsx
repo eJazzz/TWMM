@@ -29,7 +29,7 @@ const Home: React.FC = () => {
               </div>
               
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-sans font-black mb-6 leading-[1.05] tracking-tight">
-                Assess. <span className={darkMode ? 'text-blue-400' : 'text-blue-600'}>Fix.</span> Govern.
+                Assess. <span className="text-clinical-gold">Fix.</span> Govern.
                 <br />
                 <span className="text-3xl md:text-4xl lg:text-5xl opacity-90 font-bold block mt-2 italic">Make your clinic audit-ready.</span>
               </h1>
