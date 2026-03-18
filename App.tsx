@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { HashRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -10,23 +10,25 @@ import Contact from './pages/Contact';
 import HipaaHub from './pages/HipaaHub';
 import M365Audit from './pages/M365Audit';
 
-const MainLayout: React.FC = () => {
+const MainLayout: React.FC<{ darkMode: boolean; setDarkMode: (val: boolean) => void }> = ({ darkMode, setDarkMode }) => {
   return (
-    <div className="flex flex-col min-h-screen">
-      <Navbar />
+    <div className={`flex flex-col min-h-screen transition-colors duration-300 ${darkMode ? 'bg-slate-900' : 'bg-slate-50'}`}>
+      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       <main className="flex-grow">
-        <Outlet />
+        <Outlet context={{ darkMode }} />
       </main>
-      <Footer />
+      <Footer darkMode={darkMode} />
     </div>
   );
 };
 
 const App: React.FC = () => {
+  const [darkMode, setDarkMode] = useState(true);
+
   return (
     <Router>
       <Routes>
-        <Route element={<MainLayout />}>
+        <Route element={<MainLayout darkMode={darkMode} setDarkMode={setDarkMode} />}>
           <Route path="/" element={<Home />} />
           <Route path="/what-we-fix" element={<WhatWeFix />} />
           <Route path="/how-we-work" element={<HowWeWork />} />

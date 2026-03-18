@@ -1,130 +1,149 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useOutletContext } from 'react-router-dom';
 import { PROBLEM_GRID, HOW_WE_WORK_STEPS } from '../constants';
+import { ArrowRight, Shield, Activity, Users, Lock, FileText, CheckCircle } from 'lucide-react';
 
 const Home: React.FC = () => {
+  const { darkMode } = useOutletContext<{ darkMode: boolean }>();
+
   return (
-    <div className="animate-fade-in">
+    <div className={`animate-fade-in transition-colors duration-300 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
       {/* Hero Section */}
-      <section className="relative min-h-[75vh] py-16 flex items-center bg-slate-50 overflow-hidden">
-        {/* Abstract background elements */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-0 left-[15%] w-[1200px] h-[700px] bg-blue-600/10 rounded-full blur-[80px] -translate-x-1/2 -translate-y-1/2"></div>
-          <div className="absolute top-[10%] right-[10%] w-[900px] h-[600px] bg-violet-600/10 rounded-full blur-[80px] translate-x-1/2 -translate-y-1/2"></div>
-          <div className="absolute bottom-[-10%] right-[30%] w-[800px] h-[500px] bg-cyan-600/10 rounded-full blur-[80px] translate-x-1/2 translate-y-1/2"></div>
+      <section className={`relative min-h-[80vh] py-12 md:py-20 flex items-center overflow-hidden ${darkMode ? 'bg-[#0A192F]' : 'bg-slate-50'}`}>
+        {/* Background Glows */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <div className={`absolute top-0 left-[10%] w-[1000px] h-[600px] rounded-full blur-[120px] opacity-20 -translate-x-1/2 -translate-y-1/2 ${darkMode ? 'bg-blue-500' : 'bg-blue-400'}`}></div>
+          <div className={`absolute bottom-0 right-[5%] w-[800px] h-[500px] rounded-full blur-[120px] opacity-15 translate-x-1/2 translate-y-1/2 ${darkMode ? 'bg-violet-500' : 'bg-violet-400'}`}></div>
         </div>
 
-        <div className="container mx-auto px-6 relative z-10 pt-4">
-          <div className="max-w-4xl">
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 mb-5 text-[11px] font-bold uppercase tracking-widest text-slate-600 border border-blue-600/20 rounded-full bg-blue-50/50 backdrop-blur-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
-              Clinic Operations • IT & Security • RCM • VBC/MIPS
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-sans font-extrabold text-slate-900 mb-5 leading-tight tracking-tight">
-              Clinical Governance <br className="hidden md:block" />
-              For the Modern Era.
-            </h1>
-            <p className="text-lg text-slate-600 mb-10 leading-relaxed max-w-3xl">
-              We help small and mid-sized practices identify operational gaps and provide the <span className="font-bold text-slate-900 uppercase text-sm tracking-wide">Assess. Fix. Govern.</span> framework to secure your data and your future.
-            </p>
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
+            {/* Left Column: Content */}
+            <div className="max-w-3xl">
+              <div className={`inline-flex items-center gap-2 px-3 py-1.5 mb-6 text-[11px] font-black uppercase tracking-[0.2em] border rounded-full backdrop-blur-sm ${
+                darkMode ? 'text-blue-400 border-blue-400/20 bg-blue-400/5' : 'text-blue-600 border-blue-600/20 bg-blue-600/5'
+              }`}>
+                <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+                Clinic Operations • IT • Compliance • RCM
+              </div>
+              
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-sans font-black mb-6 leading-[1.05] tracking-tight">
+                Assess. <span className={darkMode ? 'text-blue-400' : 'text-blue-600'}>Fix.</span> Govern.
+                <br />
+                <span className="text-3xl md:text-4xl lg:text-5xl opacity-90 font-bold block mt-2 italic">Make your clinic audit-ready.</span>
+              </h1>
+              
+              <p className={`text-lg md:text-xl mb-10 leading-relaxed max-w-2xl font-medium ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
+                We help small and mid-sized practices identify operational bottlenecks and implement the framework to secure your data and your future.
+              </p>
 
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="border border-slate-200 bg-white/90 backdrop-blur-md p-6 rounded-2xl hover:-translate-y-1 transition-all duration-300 group shadow-lg shadow-slate-200/50">
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-600 mb-2 block">Priority Campaign 01</span>
-                <h3 className="text-xl font-bold text-slate-900 mb-2 tracking-tight">2026 Annual HIPAA Hub</h3>
-                <p className="text-sm text-slate-600 mb-6 leading-relaxed font-medium">Mandatory Training ($599 Base) & NPP Updates due Feb 16.</p>
-                <Link to="/hipaa-hub" className="text-[11px] font-bold text-blue-600 uppercase tracking-[0.2em] flex items-center group-hover:text-violet-600 transition-colors">
-                  ENTER HUB <i className="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+              <div className="flex flex-wrap gap-4 mb-12">
+                <Link to="/contact" className="bg-blue-600 text-white px-8 py-4 rounded-xl font-black text-sm uppercase tracking-wider hover:bg-blue-700 hover:shadow-2xl hover:shadow-blue-600/20 transition-all active:scale-95 flex items-center gap-2">
+                  Request Consultation <ArrowRight size={18} />
+                </Link>
+                <Link to="/packages" className={`px-8 py-4 rounded-xl font-black text-sm uppercase tracking-wider border transition-all active:scale-95 ${
+                  darkMode ? 'border-white/10 hover:bg-white/5 text-white' : 'border-slate-200 hover:bg-slate-50 text-slate-900 shadow-sm'
+                }`}>
+                  Browse Services
                 </Link>
               </div>
 
-              <div className="border border-slate-200 bg-white/90 backdrop-blur-md p-6 rounded-2xl hover:-translate-y-1 transition-all duration-300 group shadow-lg shadow-slate-200/50">
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-600 mb-2 block">Priority Campaign 02</span>
-                <h3 className="text-xl font-bold text-slate-900 mb-2 tracking-tight">M365 PHI Leak Audit</h3>
-                <p className="text-sm text-slate-600 mb-6 leading-relaxed font-medium">Secure your cloud infrastructure against unauthorized disclosure.</p>
-                <Link to="/m365-audit" className="text-[11px] font-bold text-blue-600 uppercase tracking-[0.2em] flex items-center group-hover:text-violet-600 transition-colors">
-                  LEARN MORE <i className="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
-                </Link>
+              <div className="flex flex-wrap gap-4">
+                {['Based in Tampa Bay, FL', 'Serving 1-20 Providers'].map((tag, i) => (
+                  <div key={i} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold border ${
+                    darkMode ? 'bg-white/5 border-white/10 text-slate-400' : 'bg-white border-slate-200 text-slate-600 shadow-sm'
+                  }`}>
+                    <CheckCircle size={14} className="text-blue-600" /> {tag}
+                  </div>
+                ))}
               </div>
+            </div>
+
+            {/* Right Column: Stats/Mini Panels */}
+            <div className="grid gap-4">
+              {[
+                { label: 'Priority Campaign 01', title: '2026 HIPAA Hub', link: '/hipaa-hub', icon: Shield, desc: 'Mandatory Training & NPP Updates due Feb 16.' },
+                { label: 'Priority Campaign 02', title: 'M365 Leak Audit', link: '/m365-audit', icon: Lock, desc: 'Secure cloud infrastructure against disclosure.' },
+                { label: 'Core Methodology', title: 'The AFG Model', link: '/how-we-work', icon: Activity, desc: 'Assess. Fix. Govern. - Proven implementation.' }
+              ].map((card, i) => (
+                <Link 
+                  key={i} 
+                  to={card.link}
+                  className={`group p-6 rounded-2xl border transition-all hover:-translate-y-1 ${
+                    darkMode 
+                      ? 'bg-slate-800/40 border-white/5 hover:bg-slate-800/60 hover:border-blue-400/30' 
+                      : 'bg-white border-slate-200 hover:border-blue-600/30 shadow-xl shadow-slate-200/50'
+                  }`}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className={`p-3 rounded-xl ${darkMode ? 'bg-blue-900/40 text-blue-400' : 'bg-blue-50 text-blue-600'}`}>
+                      <card.icon size={24} />
+                    </div>
+                    <div>
+                      <span className={`text-[10px] font-black uppercase tracking-[0.2em] mb-1 block ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>
+                        {card.label}
+                      </span>
+                      <h3 className="text-xl font-black mb-1 tracking-tight group-hover:text-blue-500 transition-colors uppercase">{card.title}</h3>
+                      <p className={`text-sm leading-snug font-medium ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>{card.desc}</p>
+                    </div>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* Trust Strip */}
-      <section className="bg-white py-8 border-b border-t border-slate-100">
+      <section className={`py-8 border-b border-t ${darkMode ? 'bg-slate-900 border-white/5' : 'bg-white border-slate-100'}`}>
         <div className="container mx-auto px-6">
-          <div className="flex flex-wrap justify-between items-center opacity-80">
-            <div className="w-full md:w-auto text-center md:text-left mb-4 md:mb-0">
-              <h3 className="text-slate-500 font-bold uppercase tracking-widest text-xs">Specialized Expertise For:</h3>
-            </div>
+          <div className="flex flex-wrap justify-center md:justify-between items-center gap-8 opacity-90">
+            <h3 className={`text-[11px] font-black uppercase tracking-widest ${darkMode ? 'text-slate-500' : 'text-slate-400'}`}>
+              Specialized Expertise For:
+            </h3>
             <div className="flex flex-wrap justify-center gap-6 md:gap-12">
-              <div className="flex items-center space-x-2 grayscale hover:grayscale-0 transition-all opacity-80 hover:opacity-100">
-                <i className="fas fa-users-medical text-xl text-blue-600"></i>
-                <span className="font-bold text-slate-700 text-sm">1-20 Providers</span>
-              </div>
-              <div className="flex items-center space-x-2 grayscale hover:grayscale-0 transition-all opacity-80 hover:opacity-100">
-                <i className="fas fa-clinic-medical text-xl text-blue-600"></i>
-                <span className="font-bold text-slate-700 text-sm">Outpatient Clinics</span>
-              </div>
-              <div className="flex items-center space-x-2 grayscale hover:grayscale-0 transition-all opacity-80 hover:opacity-100">
-                <i className="fas fa-file-invoice-dollar text-xl text-blue-600"></i>
-                <span className="font-bold text-slate-700 text-sm">Revenue Cycle</span>
-              </div>
-              <div className="flex items-center space-x-2 grayscale hover:grayscale-0 transition-all opacity-80 hover:opacity-100">
-                <i className="fas fa-lock text-xl text-blue-600"></i>
-                <span className="font-bold text-slate-700 text-sm">HIPAA Compliance</span>
-              </div>
+              {[
+                { label: '1-20 Providers', icon: Users },
+                { label: 'Outpatient Clinics', icon: Activity },
+                { label: 'Revenue Cycle', icon: FileText },
+                { label: 'HIPAA Compliance', icon: Shield }
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-2 group cursor-default">
+                  <item.icon size={18} className="text-blue-600 group-hover:scale-110 transition-transform" />
+                  <span className="font-extrabold text-xs uppercase tracking-wider">{item.label}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* Problem Grid */}
-      <section className="py-16 bg-slate-50/50">
+      <section className={`py-16 ${darkMode ? 'bg-[#0A192F]' : 'bg-slate-50/50'}`}>
         <div className="container mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="text-[11px] font-bold uppercase tracking-[0.3em] text-blue-600 mb-3">Core Focus Areas</h2>
-            <h3 className="text-3xl font-serif font-bold text-slate-900 mb-4">Strategic Solutions</h3>
-            <p className="text-base text-slate-600">Healthcare is clinical. Management should be too. We tackle the systemic gaps that prevent high-performing clinics from scaling.</p>
+            <h2 className={`text-[11px] font-black uppercase tracking-[0.3em] mb-3 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>Core Focus Areas</h2>
+            <h3 className="text-4xl font-sans font-black mb-4 tracking-tighter uppercase">Strategic Solutions</h3>
+            <p className={`text-base font-medium ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
+              Healthcare is clinical. Management should be too. We tackle the systemic gaps that prevent high-performing clinics from scaling.
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-5">
+          <div className="grid md:grid-cols-3 gap-6">
             {PROBLEM_GRID.map((item, idx) => (
-              <div key={idx} className="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200">
-                <div className="w-12 h-12 bg-blue-50 border border-blue-100 rounded-xl flex items-center justify-center mb-5">
-                  <i className={`fas ${item.icon} text-xl text-blue-600`}></i>
+              <div key={idx} className={`p-8 rounded-2xl border transition-all hover:shadow-2xl ${
+                darkMode 
+                  ? 'bg-slate-800/40 border-white/5 hover:border-blue-400/20 shadow-none' 
+                  : 'bg-white border-slate-200 hover:border-blue-600/20 shadow-lg shadow-slate-200/40'
+              }`}>
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 ${
+                  darkMode ? 'bg-blue-400/10 text-blue-400' : 'bg-blue-50 text-blue-600'
+                }`}>
+                  <i className={`fas ${item.icon} text-2xl`}></i>
                 </div>
-                <h4 className="text-lg font-bold text-slate-900 mb-2">{item.title}</h4>
-                <p className="text-sm text-slate-600 leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* How We Work Preview */}
-      <section className="py-16 bg-slate-900 text-white relative">
-        <div className="absolute inset-0 bg-blue-900/10 pointer-events-none"></div>
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="flex flex-col md:flex-row items-center justify-between mb-10">
-            <div className="max-w-xl mb-6 md:mb-0">
-              <h2 className="text-[11px] font-bold uppercase tracking-[0.3em] text-blue-400 mb-2">Methodology</h2>
-              <h3 className="text-3xl font-serif font-bold mb-3 text-white">The 4-Stage Governance Model</h3>
-              <p className="text-blue-100/70 text-base">We don't just provide advice. We implement frameworks that ensure your clinic remains compliant and profitable.</p>
-            </div>
-            <Link to="/how-we-work" className="text-blue-400 text-sm font-bold flex items-center hover:text-white group transition-colors">
-              Explore Process <i className="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
-            </Link>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-4">
-            {HOW_WE_WORK_STEPS.map((step, idx) => (
-              <div key={idx} className="bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-white/10 transition-colors backdrop-blur-sm">
-                <span className="text-4xl font-serif font-bold text-white/20 block mb-4">{step.step}</span>
-                <h4 className="text-lg font-bold mb-2 text-white">{step.title}</h4>
-                <p className="text-blue-100/60 text-sm leading-relaxed">{step.desc}</p>
+                <h4 className="text-lg font-black mb-2 uppercase tracking-tight">{item.title}</h4>
+                <p className={`text-sm leading-relaxed font-medium ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>{item.desc}</p>
               </div>
             ))}
           </div>
@@ -132,14 +151,16 @@ const Home: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-600">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-2xl md:text-3xl font-serif font-bold text-white mb-8">Ready to assess your clinic's performance?</h2>
+      <section className="py-16 bg-blue-600 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-600"></div>
+        <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32 blur-3xl"></div>
+        <div className="container mx-auto px-6 text-center relative z-10">
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-8 tracking-tighter uppercase">Ready to assess your clinic's performance?</h2>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link to="/contact" className="bg-white text-blue-600 px-8 py-3 rounded-xl font-bold hover:bg-slate-50 hover:shadow-lg transition-all border border-transparent">
-              Request Preliminary Audit
+            <Link to="/contact" className="bg-white text-blue-600 px-10 py-4 rounded-xl font-black uppercase text-sm tracking-widest hover:bg-slate-50 hover:shadow-2xl transition-all active:scale-95">
+              Request Audit
             </Link>
-            <Link to="/what-we-fix" className="bg-blue-700 text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-800 transition-all border border-blue-500 hover:border-blue-400">
+            <Link to="/what-we-fix" className="bg-blue-700 text-white px-10 py-4 rounded-xl font-black uppercase text-sm tracking-widest border border-blue-500 hover:bg-blue-800 transition-all active:scale-95">
               Identify Pain Points
             </Link>
           </div>
