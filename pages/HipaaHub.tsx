@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const HipaaHub = () => {
     const [darkMode, setDarkMode] = useState(true);
@@ -56,16 +57,17 @@ const HipaaHub = () => {
 
             {/* Navigation */}
             <nav className={`backdrop-blur-md border-b py-4 px-6 md:px-12 flex justify-between items-center z-40 relative ${darkMode ? 'bg-clinical-deep/95 border-white/5' : 'bg-white border-clinical-deep/10'}`}>
-                <div className="flex items-center">
-                    <img src="/media/TWMMMinLogo_200x200px.png" alt="TWMM Logo" className={`h-12 w-auto mr-4 ${darkMode ? 'brightness-100' : 'brightness-0'}`} />
+                <Link to="/" className="flex items-center">
+                    <img src="/twmm-logo.png" alt="TWMM Logo" className={`h-12 w-auto mr-4 ${darkMode ? 'brightness-100' : 'brightness-0'}`} />
                     <div className="leading-none">
                         <span className={`font-bold tracking-tighter text-base md:text-lg uppercase ${darkMode ? 'text-white' : 'text-clinical-deep'}`}>Transworld <span className="text-clinical-gold">Medical</span></span>
                         <span className={`text-[10px] md:text-xs block tracking-[0.3em] uppercase mt-1 ${darkMode ? 'text-clinical-white' : 'text-clinical-slate-light'}`}>Management</span>
                     </div>
-                </div>
+                </Link>
 
                 <div className="flex items-center space-x-4 md:space-x-10">
                     <div className={`hidden lg:flex space-x-8 text-[11px] font-bold uppercase tracking-widest ${darkMode ? 'text-clinical-white' : 'text-clinical-slate-light'}`}>
+                        <Link to="/" className="hover:text-clinical-gold transition-colors">Home</Link>
                         <a href="https://twmm.transworldmm.com/pricing" className="hover:text-clinical-gold transition-colors">Annual Training</a>
                         <a href="#governance" className="hover:text-clinical-gold transition-colors">SRA & Governance</a>
                         <a href="https://twmm.transworldmm.com/pricing" className="bg-clinical-gold text-clinical-deep px-6 py-2.5 rounded-sm hover:bg-clinical-blue hover:text-white transition-all text-center">Enroll Now</a>

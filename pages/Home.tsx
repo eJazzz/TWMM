@@ -120,7 +120,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Problem Grid */}
-      <section className={`py-16 ${darkMode ? 'bg-[#0A192F]' : 'bg-slate-50/50'}`}>
+      <section id="governance" className={`py-16 ${darkMode ? 'bg-[#0A192F]' : 'bg-slate-50/50'}`}>
         <div className="container mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h2 className={`text-[11px] font-black uppercase tracking-[0.3em] mb-3 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>Core Focus Areas</h2>

@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Sun, Moon } from 'lucide-react';
 import { NAV_ITEMS } from '../constants';
 
@@ -8,6 +8,29 @@ const Navbar: React.FC<{ darkMode: boolean; setDarkMode: (val: boolean) => void 
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleNavClick = (path: string, e: React.MouseEvent) => {
+    if (path.startsWith('/#')) {
+      e.preventDefault();
+      const id = path.replace('/#', '');
+      if (location.pathname === '/') {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        navigate('/');
+        setTimeout(() => {
+          const element = document.getElementById(id);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      }
+      setIsOpen(false);
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
@@ -43,8 +66,9 @@ const Navbar: React.FC<{ darkMode: boolean; setDarkMode: (val: boolean) => void 
               <Link
                 key={item.path}
                 to={item.path}
+                onClick={(e) => handleNavClick(item.path, e)}
                 className={`text-sm font-bold transition-all hover:translate-y-[-1px] ${
-                  location.pathname === item.path
+                  location.pathname === item.path || (item.path.startsWith('/#') && location.hash === item.path.replace('/', ''))
                     ? (darkMode ? 'text-blue-400' : 'text-blue-600')
                     : (darkMode ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900')
                 }`}
@@ -91,7 +115,10 @@ const Navbar: React.FC<{ darkMode: boolean; setDarkMode: (val: boolean) => void 
               <Link
                 key={item.path}
                 to={item.path}
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => {
+                  handleNavClick(item.path, e);
+                  setIsOpen(false);
+                }}
                 className={`text-lg font-bold border-b pb-2 ${
                   darkMode ? 'text-white border-white/10' : 'text-slate-900 border-slate-100'
                 }`}
