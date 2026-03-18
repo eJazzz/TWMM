@@ -66,9 +66,9 @@ const M365Audit = () => {
                         <button onClick={() => setDarkMode(!darkMode)} className={`p-2 rounded-md border ${darkMode ? 'border-white/10 text-yellow-500' : 'border-slate-200 text-slate-600'}`}>
                             {darkMode ? <Sun size={14} /> : <Moon size={14} />}
                         </button>
-                        <button className="bg-[#c5a059] hover:bg-[#b08d48] text-[#0a1128] px-6 py-3 font-black transition-all shadow-lg active:scale-95">
+                        <a href="https://calendly.com/admin-transworldmm/30min" target="_blank" rel="noopener noreferrer" className="bg-[#c5a059] hover:bg-[#b08d48] text-[#0a1128] px-6 py-3 font-black transition-all shadow-lg active:scale-95 inline-block text-center">
                             BOOK AUDIT NOW
-                        </button>
+                        </a>
                     </div>
                 </div>
             </nav>
@@ -87,11 +87,14 @@ const M365Audit = () => {
                         Most clinics use M365 with default settings that leave patient data exposed.<br /> Our 60-minute remote audit identifies your top risks and gives you a prioritized fix list.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <button
+                        <a
+                            href="https://calendly.com/admin-transworldmm/30min" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
                             className="bg-[#c5a059] hover:bg-[#b08d48] text-[#0a1128] px-10 py-5 rounded-sm text-lg font-black shadow-2xl transition-all flex items-center justify-center gap-3 group"
                         >
                             BOOK M365 LEAK CHECK ($199) <ArrowRight className="group-hover:translate-x-1 transition-transform" />
-                        </button>
+                        </a>
                         <button
                             onClick={() => scrollToSection('scope')}
                             className={`px-10 py-5 rounded-sm text-lg font-black border transition-all ${darkMode ? 'border-white/10 hover:bg-white/5' : 'border-slate-200 hover:bg-slate-50 text-slate-600'}`}
@@ -236,6 +239,7 @@ const M365Audit = () => {
                         We don't leave you with questions. You receive a 1-page **Risk Snapshot** summarizing our findings and a clear path to resolution.
                     </p>
 
+                    {/* SAMPLE SNAPSHOT PREVIEW - Hidden until screenshot is ready
                     <div className="mx-auto max-w-lg border-4 border-dashed border-slate-200 p-8 rounded-sm bg-slate-50/50 shadow-inner">
                         <div className="flex flex-col gap-3 text-left opacity-30 select-none">
                             <div className="h-6 bg-slate-300 rounded w-1/2 mb-6"></div>
@@ -247,6 +251,7 @@ const M365Audit = () => {
                             <div className="h-3 bg-slate-300 rounded w-5/6"></div>
                         </div>
                     </div>
+                    */}
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16 text-left">
                         <div className="flex gap-4 p-6 border border-slate-100 rounded-sm">
@@ -269,11 +274,14 @@ const M365Audit = () => {
                     <p className="text-xl md:text-2xl font-medium mb-12 opacity-90 leading-relaxed max-w-2xl mx-auto">
                         One hour of expert oversight can prevent a six-figure HIPAA penalty. Serving Florida's Suncoast Clinics.
                     </p>
-                    <button
-                        className="bg-white text-[#b91c1c] hover:bg-slate-100 px-12 py-6 rounded-sm text-xl font-black shadow-2xl transition-all flex items-center justify-center gap-3 mx-auto uppercase tracking-tight"
+                    <a
+                        href="https://calendly.com/admin-transworldmm/30min" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="bg-white text-[#b91c1c] hover:bg-slate-100 px-12 py-6 rounded-sm text-xl font-black shadow-2xl transition-all flex items-center justify-center gap-3 mx-auto uppercase tracking-tight w-fit"
                     >
                         BOOK YOUR SESSION NOW<br /> Only $199<ArrowRight size={24} />
-                    </button>
+                    </a>
                     <p className="mt-10 text-[10px] font-bold uppercase tracking-[0.3em] opacity-60">
                         Requires M365 Global Administrator access.
                     </p>

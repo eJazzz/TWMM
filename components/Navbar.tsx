@@ -24,11 +24,11 @@ const Navbar: React.FC = () => {
 
       <nav className={`sticky top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-clinical-deep shadow-lg py-3' : 'bg-[#0A192F] py-5 border-b border-white/5'}`}>
         <div className="container mx-auto px-6 flex justify-between items-center">
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-clinical-gold rounded-sm flex items-center justify-center font-bold text-clinical-deep">TW</div>
+          <Link to="/" className="flex items-center space-x-3">
+            <img src="/twmm-logo.png" alt="TWMM Logo" className="w-12 h-12 object-contain" />
             <div className="flex flex-col leading-tight">
-              <span className={`font-serif font-bold text-xl tracking-tight text-white`}>TW Medical</span>
-              <span className={`text-[10px] uppercase tracking-widest text-clinical-slate`}>Management LLC</span>
+              <span className={`font-serif font-bold text-xl tracking-tight text-white`}>Transworld</span>
+              <span className={`text-[10px] uppercase tracking-widest text-clinical-slate`}>Medical Management</span>
             </div>
           </Link>
 

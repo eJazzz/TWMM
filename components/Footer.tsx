@@ -8,8 +8,8 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-12">
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="w-8 h-8 bg-clinical-gold rounded-sm flex items-center justify-center font-bold text-clinical-deep text-xs">TW</div>
+            <div className="flex items-center space-x-3 mb-6">
+              <img src="/twmm-logo.png" alt="TWMM Logo" className="w-12 h-12 object-contain" />
               <span className="font-serif font-bold text-xl">Transworld Medical Management</span>
             </div>
             <p className="text-clinical-accent max-w-sm mb-6">
