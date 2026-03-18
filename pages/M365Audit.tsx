@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import {
-    Shield, CheckCircle, AlertTriangle, FileText, Clock,
+    CheckCircle, AlertTriangle, FileText, Clock,
     ArrowRight, ShieldCheck, Mail, Users, Share2,
     Lock, Zap, Sun, Moon, MapPin, AlertCircle, Info, XCircle,
     ArrowUp
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const APP_NAME = "TRANSWORLD MEDICAL";
 const SUB_NAME = "MANAGEMENT";
@@ -49,17 +50,16 @@ const M365Audit = () => {
             {/* 2. Navigation */}
             <nav className={`sticky top-0 w-full z-50 border-b backdrop-blur-md transition-colors ${darkMode ? 'bg-[#0a1128]/95 border-white/5' : 'bg-white/95 border-slate-200'}`}>
                 <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
-                    <div className="flex items-center gap-4">
-                        <div className={`p-1 border-2 ${darkMode ? 'border-[#c5a059]' : 'border-blue-900'}`}>
-                            <Shield className={`w-7 h-7 ${darkMode ? 'text-white' : 'text-blue-900'}`} fill={darkMode ? "#c5a059" : "currentColor"} />
-                        </div>
+                    <Link to="/" className="flex items-center gap-4 group">
+                        <img src="/twmm-logo.png" alt="TWMM" className="w-10 h-10 object-contain" />
                         <div className="flex flex-col">
-                            <span className="font-black text-lg tracking-tighter leading-none">{APP_NAME}</span>
+                            <span className="font-black text-lg tracking-tighter leading-none group-hover:text-[#c5a059] transition-colors">{APP_NAME}</span>
                             <span className={`text-[9px] tracking-[0.4em] font-bold ${darkMode ? 'text-[#c5a059]' : 'text-slate-500'}`}>{SUB_NAME}</span>
                         </div>
-                    </div>
+                    </Link>
 
                     <div className="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-[0.2em]">
+                        <Link to="/" className="hover:text-[#c5a059] transition-colors">Home</Link>
                         <button onClick={() => scrollToSection('why')} className="hover:text-[#c5a059] transition-colors">Risk Profile</button>
                         <button onClick={() => scrollToSection('scope')} className="hover:text-[#c5a059] transition-colors">Audit Scope</button>
                         <button onClick={() => scrollToSection('process')} className="hover:text-[#c5a059] transition-colors">Process</button>
@@ -291,15 +291,16 @@ const M365Audit = () => {
             {/* 9. Footer */}
             <footer className={`py-16 border-t transition-colors ${darkMode ? 'bg-[#0a1128] border-white/5 text-slate-500' : 'bg-white border-slate-200 text-slate-400'}`}>
                 <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-12">
-                    <div className="flex items-center gap-4 opacity-40 grayscale">
-                        <Shield size={32} />
-                        <div className="flex flex-col">
-                            <span className="text-xs font-black uppercase tracking-widest leading-none">{APP_NAME}</span>
+                    <Link to="/" className="flex items-center gap-4 opacity-70 hover:opacity-100 transition-all group">
+                        <img src="/twmm-logo.png" alt="TWMM" className="w-8 h-8 object-contain grayscale group-hover:grayscale-0" />
+                        <div className="flex flex-col grayscale group-hover:grayscale-0">
+                            <span className="text-xs font-black uppercase tracking-widest leading-none group-hover:text-[#c5a059]">{APP_NAME}</span>
                             <span className="text-[9px] font-bold uppercase tracking-[0.4em] leading-none">{SUB_NAME}</span>
                         </div>
-                    </div>
+                    </Link>
 
                     <div className="flex gap-10 text-[10px] font-black uppercase tracking-[0.2em]">
+                        <Link to="/" className="hover:text-[#c5a059] transition-colors">Home</Link>
                         <a href="#" className="hover:text-[#c5a059] transition-colors">Risk Profile</a>
                         <a href="#" className="hover:text-[#c5a059] transition-colors">Privacy</a>
                         <a href="#" className="hover:text-[#c5a059] transition-colors">Agreement</a>
