@@ -6,6 +6,8 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Home', path: '/' },
   { label: 'What We Fix', path: '/what-we-fix' },
   { label: 'How We Work', path: '/how-we-work' },
+  { label: 'HIPAA Hub', path: '/hipaa-hub' },
+  { label: 'M365 Audit', path: '/m365-audit' },
   { label: 'SRA & Governance', path: '/#governance' },
   { label: 'Packages & Services', path: '/packages' },
   { label: 'Contact', path: '/contact' },

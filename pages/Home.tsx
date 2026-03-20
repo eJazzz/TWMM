@@ -1,14 +1,151 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useOutletContext } from 'react-router-dom';
 import { PROBLEM_GRID, HOW_WE_WORK_STEPS } from '../constants';
-import { ArrowRight, Shield, Activity, Users, Lock, FileText, CheckCircle } from 'lucide-react';
+import { 
+  ArrowRight, Shield, Activity, Users, Lock, FileText, CheckCircle, 
+  AlertTriangle, X, Calendar, ShieldAlert, FileWarning, Zap 
+} from 'lucide-react';
 
 const Home: React.FC = () => {
   const { darkMode } = useOutletContext<{ darkMode: boolean }>();
+  const [showUrgencyModal, setShowUrgencyModal] = useState(false);
+
+  useEffect(() => {
+    // Show modal after a short delay to simulate "loading" popup
+    const timer = setTimeout(() => {
+      const hasSeenModal = sessionStorage.getItem('hasSeenUrgencyModal');
+      if (!hasSeenModal) {
+        setShowUrgencyModal(true);
+      }
+    }, 1200);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const closeModal = () => {
+    setShowUrgencyModal(false);
+    sessionStorage.setItem('hasSeenUrgencyModal', 'true');
+  };
 
   return (
     <div className={`animate-fade-in transition-colors duration-300 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
+      {/* Urgency Modal */}
+      {showUrgencyModal && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center px-6 py-10 animate-fade-in">
+          <div 
+            className="absolute inset-0 bg-slate-900/80 backdrop-blur-md"
+            onClick={closeModal}
+          ></div>
+          
+          <div className={`relative w-full max-w-2xl max-h-full overflow-y-auto rounded-3xl border-2 shadow-2xl transition-all duration-500 transform scale-100 ${
+            darkMode 
+              ? 'bg-[#0A192F] border-red-500/30' 
+              : 'bg-white border-red-200'
+          }`}>
+            <button 
+              onClick={closeModal}
+              className={`absolute top-6 right-6 p-2 rounded-full transition-colors ${
+                darkMode ? 'hover:bg-white/10 text-slate-400' : 'hover:bg-slate-100 text-slate-500'
+              }`}
+            >
+              <X size={24} />
+            </button>
+
+            <div className="p-8 md:p-12">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-14 h-14 bg-red-600 rounded-2xl flex items-center justify-center animate-pulse shadow-lg shadow-red-600/20">
+                  <AlertTriangle size={32} className="text-white" />
+                </div>
+                <div>
+                  <h2 className="text-[11px] font-black uppercase tracking-[0.4em] text-red-600 mb-1">Mandatory Alert</h2>
+                  <h3 className="text-3xl md:text-4xl font-black tracking-tighter uppercase leading-none">2026 <span className="text-clinical-gold text-clinical-gold-dark italic">Mandates</span> Due.</h3>
+                </div>
+              </div>
+
+              <p className={`text-lg mb-10 font-bold leading-relaxed ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
+                CMS and OCR enforcement cycles for 2026 have been activated. The following items require immediate clinical oversight:
+              </p>
+
+              <div className="space-y-4 mb-10">
+                {[
+                  { 
+                    title: 'Annual HIPAA Training', 
+                    desc: 'Mandatory 2026 cycle for all staff. Audit enforcement active.', 
+                    link: '/hipaa-hub',
+                    icon: Users
+                  },
+                  { 
+                    title: '2026 Security Risk Assessment', 
+                    desc: 'Annual SRA update required for MIPS/VBC and compliance.', 
+                    link: '/#governance',
+                    icon: ShieldAlert
+                  },
+                  { 
+                    title: 'NPP Redistribution (2026)', 
+                    desc: 'Updated Notice of Privacy Practices must be implemented by Feb 16.', 
+                    link: '/hipaa-hub',
+                    icon: FileWarning
+                  },
+                  { 
+                    title: 'M365 PHI Leak Audit', 
+                    desc: 'Critical security audit to prevent accidental data disclosure.', 
+                    link: '/m365-audit',
+                    icon: Lock
+                  },
+                  { 
+                    title: 'P&P Updates (Reproductive Health)', 
+                    desc: 'New federal privacy rules for reproductive health info are now in effect.', 
+                    link: '/contact',
+                    icon: FileText
+                  }
+                ].map((item, i) => (
+                  <Link 
+                    key={i} 
+                    to={item.link} 
+                    onClick={closeModal}
+                    className={`flex items-start gap-4 p-5 rounded-2xl border transition-all hover:translate-x-1 ${
+                      darkMode 
+                        ? 'bg-white/5 border-white/5 hover:bg-white/10 hover:border-blue-500/30' 
+                        : 'bg-slate-50 border-slate-200 hover:bg-white hover:border-blue-600/30 shadow-sm'
+                    }`}
+                  >
+                    <div className={`mt-1 p-2 rounded-lg ${darkMode ? 'bg-blue-600/20 text-blue-400' : 'bg-blue-600/10 text-blue-600'}`}>
+                      <item.icon size={18} />
+                    </div>
+                    <div>
+                      <h4 className="font-black text-sm uppercase tracking-tight mb-1">{item.title}</h4>
+                      <p className={`text-xs font-semibold ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>{item.desc}</p>
+                    </div>
+                    <ArrowRight size={16} className="ml-auto opacity-40 shrink-0" />
+                  </Link>
+                ))}
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link 
+                  to="/hipaa-hub" 
+                  onClick={closeModal}
+                  className="flex-1 bg-red-600 text-white px-8 py-5 rounded-xl font-black uppercase text-xs tracking-[0.2em] hover:bg-red-700 transition-all text-center shadow-xl shadow-red-600/20"
+                >
+                  Apply 2026 Roadmap
+                </Link>
+                <button 
+                  onClick={closeModal}
+                  className={`flex-1 px-8 py-5 rounded-xl font-black uppercase text-xs tracking-[0.2em] border transition-all ${
+                    darkMode ? 'border-white/10 hover:bg-white/5' : 'border-slate-200 hover:bg-slate-50'
+                  }`}
+                >
+                  Dismiss Warning
+                </button>
+              </div>
+              
+              <p className={`mt-8 text-[10px] text-center font-bold uppercase tracking-[0.3em] ${darkMode ? 'text-slate-500' : 'text-slate-400'}`}>
+                Verified Compliance Verification Cycle: 2026-Q1
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
       {/* Hero Section */}
       <section className={`relative min-h-[80vh] py-12 md:py-20 flex items-center overflow-hidden ${darkMode ? 'bg-[#0A192F]' : 'bg-slate-50'}`}>
         {/* Background Glows */}
